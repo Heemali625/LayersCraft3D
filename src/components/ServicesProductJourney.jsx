@@ -191,6 +191,8 @@ export default function ServicesProductJourney({ setCurrentPage }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleCTA = () => {
+    const serviceName = active.title;
+    window.history.pushState({}, '', `/quick-quote?service=${encodeURIComponent(serviceName)}`);
     setCurrentPage('quick-quote');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

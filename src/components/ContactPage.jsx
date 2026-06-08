@@ -26,12 +26,12 @@ const FAQS = [
   }
 ];
 
-export default function ContactPage() {
+export default function ContactPage({ selectedService = '' }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: ''
+    service: selectedService || ''
   });
 
   const [focusedField, setFocusedField] = useState({
@@ -44,6 +44,7 @@ export default function ContactPage() {
   const [isDragActive, setIsDragActive] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formError, setFormError] = useState('');
 
   const handleFocus = (field) => {
     setFocusedField(prev => ({ ...prev, [field]: true }));
@@ -105,21 +106,37 @@ export default function ContactPage() {
     setActiveFaq(activeFaq === idx ? null : idx);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormError('');
     if (!formData.name || !formData.email || !formData.phone || !formData.service) {
       alert("Please fill in all the required fields.");
       return;
     }
     
     setFormSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', service: '' });
-      setUploadedFile(null);
-      setFocusedField({ name: false, email: false, phone: false });
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to send');
+      }
+      
+      setTimeout(() => {
+        setFormData({ name: '', email: '', phone: '', service: '' });
+        setUploadedFile(null);
+        setFocusedField({ name: false, email: false, phone: false });
+        setFormSubmitted(false);
+        alert("Thank you! Your quote request has been received. Our team will contact you shortly.");
+      }, 1500);
+    } catch (err) {
+      setFormError('Something went wrong. Please try again or email us directly.');
       setFormSubmitted(false);
-      alert("Thank you! Your quote request has been received. Our team will contact you shortly.");
-    }, 2000);
+    }
   };
 
   return (
