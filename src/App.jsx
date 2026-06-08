@@ -3,7 +3,7 @@ import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Industries from './components/Industries';
-import ServicesShowcase from './components/ServicesShowcase';
+import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import AboutUs from './components/AboutUs';
 import Metrics from './components/Metrics';
@@ -113,7 +113,7 @@ function App() {
           <div className="flex flex-col">
             {/* Page 1: Homepage Sections */}
             <Hero setCurrentPage={setCurrentPage} />
-            <ServicesShowcase setCurrentPage={setCurrentPage} />
+            <Services setCurrentPage={setCurrentPage} />
             <Portfolio />
             <Industries />
             <AboutUs setCurrentPage={setCurrentPage} />
