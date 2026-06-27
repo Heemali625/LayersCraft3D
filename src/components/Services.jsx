@@ -1,10 +1,15 @@
 import { HoverEffect } from './ui/HoverEffect';
 import Reveal from './ui/Reveal';
-import { Zap, Layers, Box, PenTool, Scan, Settings } from 'lucide-react';
+import { Zap, Layers, Box, PenTool, Scan, Settings, Factory } from 'lucide-react';
 
 export default function Services({ setCurrentPage }) {
   const handleCTA = () => {
     setCurrentPage('quick-quote');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const goServices = () => {
+    setCurrentPage('services');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -44,6 +49,12 @@ export default function Services({ setCurrentPage }) {
       desc: "Our advanced CNC machining will produce strong, high-precision parts and give reliable performance.",
       icon: Settings,
       linkAction: handleCTA
+    },
+    {
+      title: "Injection Molding",
+      desc: "We manufacture high-quality plastic parts efficiently for mass production and consistent results.",
+      icon: Factory,
+      linkAction: handleCTA
     }
   ];
 
@@ -56,12 +67,12 @@ export default function Services({ setCurrentPage }) {
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-text-primary mb-5 max-w-3xl mx-auto text-gradient-premium">
-            Select the right build path before you spend on production
+            Choose the Best Solutions for Your Business
           </h2>
         </Reveal>
         <Reveal delay={0.16}>
           <p className="text-base premium-copy max-w-[650px] mx-auto">
-            Discover the service that matches your stage, from first CAD exploration to functional prototypes, presentation models, scanning, machining, and short-run manufacturing.
+            Select the right service to transform your ideas into refined designs and functional products.
           </p>
         </Reveal>
 
@@ -72,7 +83,7 @@ export default function Services({ setCurrentPage }) {
 
         <Reveal delay={0.12} className="mt-8 flex justify-center">
           <button 
-            onClick={handleCTA}
+            onClick={goServices}
             className="px-8 py-3 rounded-lg border border-border-color bg-transparent hover:bg-bg-secondary hover:border-text-secondary/50 text-sm font-semibold text-text-primary transition-all cursor-pointer"
           >
             View More Services

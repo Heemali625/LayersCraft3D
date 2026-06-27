@@ -1,4 +1,6 @@
 import { Clock, Mail, MapPin, MessageSquare, PhoneCall } from 'lucide-react';
+import CTASection from '../CTASection';
+import FAQSection from '../FAQSection';
 import Reveal from '../ui/Reveal';
 import { BentoPanel, EditorialBlock, PageHero, VisualPlate } from './PagePrimitives';
 
@@ -49,6 +51,8 @@ export default function ContactUsPage({ setCurrentPage }) {
         </div>
       </section>
 
+      <FAQSection title="Contact questions answered" />
+
       <section className="relative py-20 px-6 bg-bg-secondary premium-section">
         <div className="max-w-5xl mx-auto text-center">
           <Reveal>
@@ -64,6 +68,7 @@ export default function ContactUsPage({ setCurrentPage }) {
           </Reveal>
         </div>
       </section>
+      <CTASection setCurrentPage={setCurrentPage} />
     </div>
   );
 }

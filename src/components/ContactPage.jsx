@@ -8,7 +8,8 @@ const SERVICES = [
   "Scale Models",
   "3D Designing & Sculpting",
   "3D Scanning",
-  "CNC Machining"
+  "CNC Machining",
+  "Injection Molding"
 ];
 
 const FAQS = [
@@ -133,7 +134,7 @@ export default function ContactPage({ selectedService = '' }) {
         setFormSubmitted(false);
         alert("Thank you! Your quote request has been received. Our team will contact you shortly.");
       }, 1500);
-    } catch (err) {
+    } catch {
       setFormError('Something went wrong. Please try again or email us directly.');
       setFormSubmitted(false);
     }
@@ -303,6 +304,9 @@ export default function ContactPage({ selectedService = '' }) {
               </div>
 
               {/* Submit CTA */}
+              {formError && (
+                <p className="text-sm font-semibold text-red-400">{formError}</p>
+              )}
               <button 
                 type="submit" 
                 className="btn-glow w-full py-3.5 rounded-lg text-sm font-semibold text-text-primary select-none mt-2 cursor-pointer"

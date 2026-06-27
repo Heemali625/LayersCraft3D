@@ -5,8 +5,7 @@ import Hero from './components/Hero';
 import Industries from './components/Industries';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
-import AboutUs from './components/AboutUs';
-import Metrics from './components/Metrics';
+import TrustedPartners from './components/TrustedPartners';
 import Workflow from './components/Workflow';
 import CTASection from './components/CTASection';
 import Testimonials from './components/Testimonials';
@@ -40,6 +39,10 @@ const getPageFromPath = () => {
 
 function App() {
   const [currentPage, setCurrentPageState] = useState(getPageFromPath);
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') return 'dark';
+    return window.localStorage.getItem('lc3d-theme') || 'dark';
+  });
 
   // Initialize Lenis Smooth Momentum Scrolling
   useEffect(() => {
@@ -74,6 +77,11 @@ function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle('light', theme === 'light');
+    window.localStorage.setItem('lc3d-theme', theme);
+  }, [theme]);
+
   const setCurrentPage = (page) => {
     const nextPath = PAGE_TO_PATH[page] || '/';
     if (window.location.pathname !== nextPath) {
@@ -105,6 +113,8 @@ function App() {
         currentPage={currentPage} 
         setCurrentPage={setCurrentPage} 
         scrollToSection={scrollToSection} 
+        theme={theme}
+        setTheme={setTheme}
       />
       
       {/* Main Pages Flow */}
@@ -113,11 +123,10 @@ function App() {
           <div className="flex flex-col">
             {/* Page 1: Homepage Sections */}
             <Hero setCurrentPage={setCurrentPage} />
+            <TrustedPartners />
             <Services setCurrentPage={setCurrentPage} />
             <Portfolio />
             <Industries />
-            <AboutUs setCurrentPage={setCurrentPage} />
-            <Metrics />
             <Workflow />
             <Testimonials />
             <CTASection setCurrentPage={setCurrentPage} />
@@ -141,6 +150,7 @@ function App() {
       <Footer 
         setCurrentPage={setCurrentPage} 
         scrollToSection={scrollToSection} 
+        theme={theme}
       />
 
       {/* Hidden global SVG Gooey Filter definitions */}

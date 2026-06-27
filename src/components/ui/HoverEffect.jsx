@@ -45,8 +45,8 @@ export const HoverEffect = ({
                 />
               )}
             </AnimatePresence>
-            <Card className="premium-card">
-              <div className="flex items-center justify-between mb-2">
+              <Card className="premium-card">
+              <div className="flex items-center justify-center mb-2">
                 <div className="h-11 w-11 rounded-lg bg-bg-primary border border-border-color flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 transition-all duration-300">
                   <IconComponent size={22} />
                 </div>

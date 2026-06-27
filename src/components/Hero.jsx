@@ -4,10 +4,7 @@ import { FlipWords } from './ui/FlipWords';
 import { ArrowRight, Sparkles, Timer, ShieldCheck } from 'lucide-react';
 
 const WORDS = [
-  "Advanced 3D Technology",
-  "Precision Engineering",
-  "Seamless Prototyping",
-  "Innovative Designs"
+  "Crafted with Precision, Ready for Production"
 ];
 
 export default function Hero({ setCurrentPage }) {
@@ -51,26 +48,25 @@ export default function Hero({ setCurrentPage }) {
           
           {/* FlipWords Aceternity Block */}
           <div className="font-heading text-2xl sm:text-3xl font-semibold mb-6 flex flex-wrap items-center min-h-[3.25rem] text-text-primary">
-            <span>We Build with</span>
             <FlipWords 
               words={WORDS} 
               duration={3000} 
-              className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple font-bold pl-2 inline-block" 
+              className="text-text-primary font-bold pl-2 inline-block" 
             />
           </div>
 
           <p className="text-base sm:text-lg premium-copy mb-8 max-w-[600px]">
-            We help founders, engineers, and teams move from rough idea to refined physical product with design support, precision printing, and practical manufacturing guidance.
+            We combine design expertise with advanced 3D technology to deliver high-quality, cost-effective prototypes within days.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 w-full max-w-[560px]">
             <div className="flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.025] px-4 py-3 backdrop-blur-sm">
               <Timer size={17} className="text-accent-amber" />
-              <span className="text-xs font-semibold text-text-secondary">Prototype-ready in days</span>
+              <span className="text-xs font-semibold text-text-secondary">Innovative Designs</span>
             </div>
             <div className="flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.025] px-4 py-3 backdrop-blur-sm">
               <ShieldCheck size={17} className="text-accent-emerald" />
-              <span className="text-xs font-semibold text-text-secondary">Design, test, and refine</span>
+              <span className="text-xs font-semibold text-text-secondary">Production-Ready Solutions</span>
             </div>
           </div>
 
@@ -82,7 +78,7 @@ export default function Hero({ setCurrentPage }) {
               </span>
             </button>
             <button className="px-6 py-3 rounded-lg border border-border-color bg-transparent hover:bg-bg-secondary hover:border-text-secondary/50 text-sm font-semibold text-text-primary transition-all cursor-pointer" onClick={handleCTA}>
-              Let's Contact Today
+              Talk to Our Team
             </button>
           </div>
         </motion.div>

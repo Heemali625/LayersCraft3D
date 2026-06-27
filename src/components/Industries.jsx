@@ -1,7 +1,6 @@
-import { LogoMarquee } from './ui/LogoMarquee';
 import Reveal from './ui/Reveal';
 import { 
-  Rocket, Car, Dna, Leaf, Smartphone, 
+  Rocket, Car, Dna,
   Flame, Gem, Activity, Gauge, Cpu, 
   Briefcase, Truck, Fan, ShieldAlert 
 } from 'lucide-react';
@@ -10,8 +9,6 @@ const INDUSTRIES_DATA = [
   { name: "Aerospace & Defense", icon: Rocket },
   { name: "Automotive", icon: Car },
   { name: "Bioprinting", icon: Dna },
-  { name: "Carbon Capture", icon: Leaf },
-  { name: "Consumer Technology", icon: Smartphone },
   { 
     name: "Dental", 
     icon: () => (
@@ -50,9 +47,25 @@ export default function Industries() {
           </p>
         </Reveal>
 
-        {/* Aceternity UI Logo Cloud Marquee Block */}
         <Reveal className="w-full mt-4" delay={0.22}>
-          <LogoMarquee items={INDUSTRIES_DATA} speed="normal" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {INDUSTRIES_DATA.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.name}
+                  className="flex items-center gap-3.5 bg-bg-secondary border border-border-color rounded-xl px-5 py-4 cursor-default transition-all duration-300 hover:border-accent-cyan/35 hover:-translate-y-0.5 group"
+                >
+                  <div className="text-zinc-500 group-hover:text-accent-cyan group-hover:scale-105 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                    <Icon size={20} />
+                  </div>
+                  <span className="font-heading text-sm font-bold text-text-secondary group-hover:text-text-primary transition-colors duration-300 text-left">
+                    {item.name}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </Reveal>
       </div>
     </section>

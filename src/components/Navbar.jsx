@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logoWhite from '../assets/logo/LC3D_Logo_White_High_Res.png';
-import { ChevronDown, Menu, X, ArrowUpRight } from 'lucide-react';
+import logoBlack from '../assets/logo/LC3D_Logo_Black_High_Res.png';
+import { ChevronDown, Menu, X, ArrowUpRight, Moon, Sun } from 'lucide-react';
+import { services } from '../content/layerCraftContent';
 
-export default function Navbar({ currentPage, setCurrentPage, scrollToSection }) {
+export default function Navbar({ currentPage, setCurrentPage, scrollToSection, theme, setTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [knowledgeOpen, setKnowledgeOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -23,6 +26,7 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection })
   const handleNavClick = (page, sectionId) => {
     setIsOpen(false);
     setKnowledgeOpen(false);
+    setServicesOpen(false);
     if (page === 'home' && sectionId) {
       setCurrentPage('home');
       setTimeout(() => {
@@ -35,8 +39,12 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection })
   };
 
   const isKnowledgeActive = currentPage === 'blogs' || currentPage === 'case-studies';
+  const isLight = theme === 'light';
   const navLinkClass = (page) => `text-sm font-semibold transition-colors relative py-1 cursor-pointer ${
     currentPage === page ? 'text-accent-cyan font-bold' : 'text-text-secondary hover:text-text-primary'
+  }`;
+  const mobileLinkClass = (page) => `text-lg font-semibold transition-colors ${
+    currentPage === page ? 'text-accent-cyan' : 'text-text-secondary'
   }`;
 
   return (
@@ -49,7 +57,7 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection })
         {/* Left: Logo (Switches image based on theme) */}
         <div className="cursor-pointer flex items-center" onClick={() => handleNavClick('home')}>
           <img 
-            src={logoWhite} 
+            src={isLight ? logoBlack : logoWhite} 
             alt="LayersCraft3D Logo" 
             className="h-11 md:h-12 w-auto object-contain hover:scale-105 transition-all duration-300 filter drop-shadow-[0_0_12px_rgba(255,255,255,0.08)] dark:drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]" 
           />
@@ -77,15 +85,45 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection })
             )}
           </button>
           
-          <button 
-            className={navLinkClass('services')}
-            onClick={() => handleNavClick('services')}
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
           >
-            Services
-            {currentPage === 'services' && (
-              <motion.span layoutId="activeUnderline" className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent-cyan" />
-            )}
-          </button>
+            <button 
+              className={`${navLinkClass('services')} flex items-center gap-1.5`}
+              onClick={() => handleNavClick('services')}
+            >
+              Services
+              <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+              {currentPage === 'services' && (
+                <motion.span layoutId="activeUnderline" className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent-cyan" />
+              )}
+            </button>
+            <AnimatePresence>
+              {servicesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                  transition={{ duration: 0.18 }}
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-64"
+                >
+                  <div className="premium-card rounded-xl p-2">
+                    {services.map((service) => (
+                      <button
+                        key={service.title}
+                        onClick={() => handleNavClick('services')}
+                        className="w-full text-left px-4 py-2.5 rounded-lg text-sm font-semibold text-text-secondary hover:text-text-primary hover:bg-white/[0.04] transition-all cursor-pointer"
+                      >
+                        {service.title}
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
           
           <div 
             className="relative"
@@ -135,6 +173,14 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection })
 
         {/* Right: CTA Button */}
         <div className="hidden lg:flex items-center gap-5">
+          <button
+            type="button"
+            onClick={() => setTheme(isLight ? 'dark' : 'light')}
+            className="w-10 h-10 rounded-lg border border-border-color bg-bg-secondary text-text-secondary hover:text-text-primary hover:border-accent-cyan/25 transition-all flex items-center justify-center cursor-pointer"
+            aria-label={isLight ? 'Switch to dark mode' : 'Switch to light mode'}
+          >
+            {isLight ? <Moon size={17} /> : <Sun size={17} />}
+          </button>
           {/* Request Quote Button */}
           <button 
             className="btn-glow px-5 py-2.5 rounded-lg text-sm font-bold text-text-primary select-none" 
@@ -149,6 +195,14 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection })
 
         {/* Mobile: Menu icon */}
         <div className="lg:hidden flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => setTheme(isLight ? 'dark' : 'light')}
+            className="w-9 h-9 rounded-lg border border-border-color bg-bg-secondary text-text-secondary flex items-center justify-center"
+            aria-label={isLight ? 'Switch to dark mode' : 'Switch to light mode'}
+          >
+            {isLight ? <Moon size={16} /> : <Sun size={16} />}
+          </button>
           <button 
             className="text-text-primary bg-transparent border-none cursor-pointer focus:outline-none" 
             onClick={() => setIsOpen(!isOpen)} 
@@ -170,34 +224,37 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection })
             className="fixed top-[70px] inset-x-0 bottom-0 bg-bg-primary/95 backdrop-blur-lg px-6 py-10 flex flex-col items-center gap-6 z-40 lg:hidden overflow-y-auto"
           >
             <button 
-              className={`text-lg font-semibold transition-colors ${
-                currentPage === 'home' ? 'text-accent-cyan' : 'text-text-secondary'
-              }`}
+              className={mobileLinkClass('home')}
               onClick={() => handleNavClick('home')}
             >
               Home
             </button>
             <button 
-              className="text-text-secondary text-lg font-semibold"
+              className={mobileLinkClass('about')}
               onClick={() => handleNavClick('about')}
             >
               About
             </button>
             <button 
-              className="text-text-secondary text-lg font-semibold"
+              className={mobileLinkClass('services')}
               onClick={() => handleNavClick('services')}
             >
               Services
             </button>
+            <div className="flex flex-col items-center gap-2 -mt-2">
+              {services.map((service) => (
+                <button key={service.title} className="text-text-muted text-sm font-semibold" onClick={() => handleNavClick('services')}>
+                  {service.title}
+                </button>
+              ))}
+            </div>
             <div className="flex flex-col items-center gap-3 py-2">
               <span className="text-xs font-bold uppercase tracking-[0.16em] text-text-muted">Knowledge Base</span>
-              <button className="text-text-secondary text-lg font-semibold" onClick={() => handleNavClick('blogs')}>Blogs</button>
-              <button className="text-text-secondary text-lg font-semibold" onClick={() => handleNavClick('case-studies')}>Case Studies</button>
+              <button className={mobileLinkClass('blogs')} onClick={() => handleNavClick('blogs')}>Blogs</button>
+              <button className={mobileLinkClass('case-studies')} onClick={() => handleNavClick('case-studies')}>Case Studies</button>
             </div>
             <button 
-              className={`text-lg font-semibold transition-colors ${
-                currentPage === 'contact' ? 'text-accent-cyan' : 'text-text-secondary'
-              }`}
+              className={mobileLinkClass('contact')}
               onClick={() => handleNavClick('contact')}
             >
               Contact Us

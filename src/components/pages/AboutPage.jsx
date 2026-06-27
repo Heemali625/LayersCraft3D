@@ -1,10 +1,11 @@
-import { Award, Sparkles } from 'lucide-react';
 import aboutImage from '../../assets/about_3d_printing.png';
-import { brandPillars, proofPoints, workflow } from '../../content/layerCraftContent';
+import { brandPillars, workflow } from '../../content/layerCraftContent';
+import CTASection from '../CTASection';
+import FAQSection from '../FAQSection';
 import Reveal from '../ui/Reveal';
 import { BentoPanel, EditorialBlock, PageHero, Timeline, VisualPlate } from './PagePrimitives';
 
-export default function AboutPage() {
+export default function AboutPage({ setCurrentPage }) {
   return (
     <div className="bg-bg-primary text-text-primary">
       <PageHero
@@ -29,8 +30,14 @@ export default function AboutPage() {
           <Reveal className="mb-12 max-w-3xl">
             <span className="section-kicker mb-4">What We Believe</span>
             <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-gradient-premium leading-tight">
-              Premium does not mean complicated. It means the next step is clear.
+              Our mission is to make advanced manufacturing accessible.
             </h2>
+            <p className="premium-copy text-base sm:text-lg mt-5">
+              We provide low-cost 3D printing services and practical product-development support for startups, creators, and industrial teams.
+            </p>
+          </Reveal>
+          <Reveal className="mb-8">
+            <span className="section-kicker mb-4">USP</span>
           </Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {brandPillars.map((pillar, idx) => {
@@ -58,32 +65,8 @@ export default function AboutPage() {
         <Timeline items={workflow} />
       </EditorialBlock>
 
-      <section className="relative py-20 px-6 bg-bg-secondary premium-section">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 items-stretch">
-          <Reveal>
-            <BentoPanel className="h-full flex flex-col justify-between">
-              <Sparkles size={30} className="text-accent-amber mb-8" />
-              <div>
-                <span className="section-kicker mb-4">Proof</span>
-                <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-gradient-premium leading-tight">
-                  Focused numbers, earned through delivery.
-                </h2>
-              </div>
-            </BentoPanel>
-          </Reveal>
-          <div className="grid grid-cols-2 gap-5">
-            {proofPoints.map((point, idx) => (
-              <Reveal key={point.label} delay={idx * 0.06}>
-                <BentoPanel>
-                  <Award size={22} className="text-accent-cyan mb-6" />
-                  <span className="font-heading text-4xl sm:text-5xl font-extrabold text-gradient-premium">{point.value}</span>
-                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-text-secondary mt-3">{point.label}</p>
-                </BentoPanel>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQSection title="Questions before we build together" />
+      <CTASection setCurrentPage={setCurrentPage} />
     </div>
   );
 }

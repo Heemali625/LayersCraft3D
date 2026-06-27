@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { services, workflow } from '../../content/layerCraftContent';
+import { services, technologies, workflow } from '../../content/layerCraftContent';
+import CTASection from '../CTASection';
 import ServicesProductJourney from '../ServicesProductJourney';
 import Reveal from '../ui/Reveal';
 import { BentoPanel, EditorialBlock, PageHero, Timeline } from './PagePrimitives';
@@ -47,6 +48,27 @@ export default function ServicesPage({ setCurrentPage }) {
         </div>
       </section>
 
+      <section className="relative py-20 px-6 bg-bg-secondary premium-section overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <Reveal className="max-w-3xl mb-12">
+            <span className="section-kicker mb-4">Technologies</span>
+            <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-gradient-premium leading-tight">
+              Technologies we use in 3D printing
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {technologies.map((tech, idx) => (
+              <Reveal key={tech.name} delay={idx * 0.06}>
+                <BentoPanel className="h-full">
+                  <span className="font-heading text-3xl font-extrabold text-accent-cyan">{tech.name}</span>
+                  <p className="premium-copy text-sm mt-5">{tech.desc}</p>
+                </BentoPanel>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="relative py-20 px-6 bg-bg-secondary premium-section">
         <div className="max-w-5xl mx-auto text-center">
           <Reveal>
@@ -63,6 +85,7 @@ export default function ServicesPage({ setCurrentPage }) {
           </Reveal>
         </div>
       </section>
+      <CTASection setCurrentPage={setCurrentPage} />
     </div>
   );
 }

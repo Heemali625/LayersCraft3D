@@ -1,4 +1,5 @@
 import logoWhite from '../assets/logo/LC3D_Logo_White_High_Res.png';
+import logoBlack from '../assets/logo/LC3D_Logo_Black_High_Res.png';
 import { Mail, MapPin } from 'lucide-react';
 
 const Linkedin = ({ size = 18 }) => (
@@ -29,7 +30,8 @@ const Facebook = ({ size = 18 }) => (
   </svg>
 );
 
-export default function Footer({ setCurrentPage, scrollToSection }) {
+export default function Footer({ setCurrentPage, scrollToSection, theme }) {
+  const isLight = theme === 'light';
   const handleNavClick = (page, sectionId) => {
     if (page === 'home' && sectionId) {
       setCurrentPage('home');
@@ -49,7 +51,7 @@ export default function Footer({ setCurrentPage, scrollToSection }) {
           {/* Column 1: Logo & Tagline */}
           <div className="flex flex-col items-start">
             <img 
-              src={logoWhite} 
+              src={isLight ? logoBlack : logoWhite} 
               alt="LayersCraft3D Logo" 
               className="h-8.5 w-auto object-contain mb-5" 
             />
@@ -140,16 +142,16 @@ export default function Footer({ setCurrentPage, scrollToSection }) {
           <div className="flex flex-col items-start text-left">
             <h4 className="text-sm font-bold text-text-primary uppercase tracking-wider mb-5 font-heading">Follow Us</h4>
             <div className="flex gap-3">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-text-secondary flex items-center justify-center hover:bg-accent-cyan/10 hover:text-accent-cyan hover:border-accent-cyan/20 hover:-translate-y-0.5 transition-all" aria-label="LinkedIn">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-[#0a66c2] flex items-center justify-center hover:bg-[#0a66c2]/10 hover:border-[#0a66c2]/30 hover:-translate-y-0.5 transition-all" aria-label="LinkedIn">
                 <Linkedin size={18} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-text-secondary flex items-center justify-center hover:bg-accent-cyan/10 hover:text-accent-cyan hover:border-accent-cyan/20 hover:-translate-y-0.5 transition-all" aria-label="Twitter">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-[#1da1f2] flex items-center justify-center hover:bg-[#1da1f2]/10 hover:border-[#1da1f2]/30 hover:-translate-y-0.5 transition-all" aria-label="Twitter">
                 <Twitter size={18} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-text-secondary flex items-center justify-center hover:bg-accent-cyan/10 hover:text-accent-cyan hover:border-accent-cyan/20 hover:-translate-y-0.5 transition-all" aria-label="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-[#e4405f] flex items-center justify-center hover:bg-[#e4405f]/10 hover:border-[#e4405f]/30 hover:-translate-y-0.5 transition-all" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-text-secondary flex items-center justify-center hover:bg-accent-cyan/10 hover:text-accent-cyan hover:border-accent-cyan/20 hover:-translate-y-0.5 transition-all" aria-label="Facebook">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-[#1877f2] flex items-center justify-center hover:bg-[#1877f2]/10 hover:border-[#1877f2]/30 hover:-translate-y-0.5 transition-all" aria-label="Facebook">
                 <Facebook size={18} />
               </a>
             </div>

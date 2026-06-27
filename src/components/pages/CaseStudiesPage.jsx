@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle2, Target } from 'lucide-react';
 import { caseStudies } from '../../content/layerCraftContent';
+import CTASection from '../CTASection';
 import Reveal from '../ui/Reveal';
 import { BentoPanel, PageHero } from './PagePrimitives';
 
@@ -7,7 +8,7 @@ export default function CaseStudiesPage({ setCurrentPage }) {
   const goQuote = () => {
     setCurrentPage('quick-quote');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }; 
 
   return (
     <div className="bg-bg-primary text-text-primary">
@@ -54,6 +55,7 @@ export default function CaseStudiesPage({ setCurrentPage }) {
           ))}
         </div>
       </section>
+      <CTASection setCurrentPage={setCurrentPage} />
     </div>
   );
 }

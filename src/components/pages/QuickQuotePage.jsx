@@ -1,16 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ContactPage from '../ContactPage';
 
 export default function QuickQuotePage() {
-  const [selectedService, setSelectedService] = useState('');
-
-  useEffect(() => {
+  const [selectedService] = useState(() => {
     const params = new URLSearchParams(window.location.search);
-    const service = params.get('service');
-    if (service) {
-      setSelectedService(service);
-    }
-  }, []);
+    return params.get('service') || '';
+  });
 
   return <ContactPage selectedService={selectedService} />;
 }

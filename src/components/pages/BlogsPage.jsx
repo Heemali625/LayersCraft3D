@@ -1,5 +1,6 @@
 import { ArrowRight, BookOpen, Clock, Layers } from 'lucide-react';
 import { blogPosts, services } from '../../content/layerCraftContent';
+import CTASection from '../CTASection';
 import Reveal from '../ui/Reveal';
 import { BentoPanel, EditorialBlock, PageHero, VisualPlate } from './PagePrimitives';
 
@@ -13,7 +14,7 @@ export default function BlogsPage({ setCurrentPage }) {
     <div className="bg-bg-primary text-text-primary">
       <PageHero
         eyebrow="Knowledge Base / Blogs"
-        title="Practical notes for building better physical products."
+        title="Stay Updated with Blogs"
         copy="A focused knowledge base for creators and product teams learning how to prepare files, choose processes, and reduce prototyping uncertainty."
         meta={['Guides', 'Process Notes', 'Quote Preparation']}
       />
@@ -34,8 +35,21 @@ export default function BlogsPage({ setCurrentPage }) {
           <Reveal className="max-w-3xl mb-12">
             <span className="section-kicker mb-4">Latest Articles</span>
             <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-gradient-premium leading-tight">
-              Built like an editorial system, not a generic article grid.
+              Stay Updated with Blogs
             </h2>
+          </Reveal>
+
+          <Reveal delay={0.06} className="mb-10">
+            <div className="flex flex-wrap gap-3">
+              {services.map((service) => (
+                <span
+                  key={service.title}
+                  className="rounded-xl border border-border-color bg-bg-secondary px-4 py-3 text-sm font-bold text-text-secondary transition-all duration-300 hover:border-accent-cyan/35 hover:text-text-primary"
+                >
+                  {service.title}
+                </span>
+              ))}
+            </div>
           </Reveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
@@ -86,6 +100,7 @@ export default function BlogsPage({ setCurrentPage }) {
           </div>
         </div>
       </section>
+      <CTASection setCurrentPage={setCurrentPage} />
     </div>
   );
 }

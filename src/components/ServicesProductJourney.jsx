@@ -54,6 +54,14 @@ const services = [
     deliverables: ['Machined parts (aluminum, steel, plastics)', 'Tolerance report & inspection data', 'Surface finishing (anodizing, bead blast)', 'Threaded inserts & hardware installed'],
     useCase: 'A motorsport team needed lightweight aluminum uprights with tight bearing tolerances. We 5-axis machined the components from 7075 aluminum, verified critical dimensions with CMM inspection, and delivered ready-to-install parts within the race schedule.',
   },
+  {
+    id: 'injection', step: '07', title: 'Injection Molding',
+    tagline: 'Consistent plastic parts for production runs',
+    description: 'After the prototype is validated, injection molding helps produce high-quality plastic parts efficiently for repeatable production and consistent results.',
+    applications: ['Mass production plastic parts', 'Validated product components', 'Repeatable enclosures and housings', 'Cost-efficient production runs'],
+    deliverables: ['Production-ready molded parts', 'Material and finish guidance', 'Tooling review support', 'Batch consistency checks'],
+    useCase: 'A product team needed a validated enclosure moved from prototype to repeatable plastic production. We reviewed the geometry, advised on mold-ready design choices, and prepared the path for consistent manufacturing.',
+  },
 ];
 
 const Illustrations = {
@@ -215,10 +223,10 @@ export default function ServicesProductJourney({ setCurrentPage }) {
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className="w-full aspect-[13/10] rounded-xl bg-bg-secondary border border-border-color overflow-hidden mb-5">
-                  {Illustrations[active.step]}
+                  {Illustrations[active.step] || Illustrations['04']}
                 </div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[10px] font-bold text-accent-cyan tracking-[0.18em] uppercase">Service {active.step} / 06</span>
+                  <span className="text-[10px] font-bold text-accent-cyan tracking-[0.18em] uppercase">Service {active.step} / {services.length.toString().padStart(2, '0')}</span>
                   <div className="h-px flex-1 bg-gradient-to-r from-accent-cyan/20 to-transparent" />
                 </div>
                 <h3 className="font-heading text-xl sm:text-2xl font-bold text-text-primary mb-1 tracking-tight">{active.title}</h3>

@@ -9,13 +9,12 @@ import {
   Flame,
   Gem,
   HelpCircle,
+  Factory,
   Layers,
-  Leaf,
   PenTool,
   Rocket,
   Scan,
   Settings,
-  Smartphone,
   Timer,
   Truck,
   Zap,
@@ -58,14 +57,18 @@ export const services = [
     detail: 'Used when parts require tighter tolerance, durable materials, or a machining-led finish.',
     icon: Settings,
   },
+  {
+    title: 'Injection Molding',
+    desc: 'High-quality plastic parts manufactured efficiently for consistent production results.',
+    detail: 'A strong fit when a validated prototype needs repeatable plastic parts for larger production runs.',
+    icon: Factory,
+  },
 ];
 
 export const industries = [
   { name: 'Aerospace & Defense', icon: Rocket },
   { name: 'Automotive', icon: Car },
   { name: 'Bioprinting', icon: Activity },
-  { name: 'Carbon Capture', icon: Leaf },
-  { name: 'Consumer Technology', icon: Smartphone },
   { name: 'Foundries', icon: Flame },
   { name: 'Jewelry', icon: Gem },
   { name: 'Medical & Dental', icon: Activity },
@@ -163,5 +166,43 @@ export const brandPillars = [
     title: 'Practical Engineering',
     desc: 'Design choices stay grounded in use case, material behavior, quality, and delivery realities.',
     icon: Settings,
+  },
+];
+
+export const technologies = [
+  {
+    name: 'FDM',
+    desc: 'Durable thermoplastic prototypes and functional parts built quickly for fit and form validation.',
+  },
+  {
+    name: 'SLA',
+    desc: 'High-detail resin printing for smooth surfaces, presentation models, and precise visual prototypes.',
+  },
+  {
+    name: 'SLS',
+    desc: 'Strong nylon parts for complex geometries, functional testing, and low-volume production needs.',
+  },
+  {
+    name: 'Metal 3D Printing',
+    desc: 'Production-ready metal components for demanding use cases that need strength and precision.',
+  },
+];
+
+export const faqs = [
+  {
+    q: 'Do you provide 3D printing services near me?',
+    a: 'Yes, we offer both local and online 3D printing services across India, with support for file review, quoting, production, and delivery.',
+  },
+  {
+    q: 'What software do you use?',
+    a: 'We use advanced 3D modeling, CAD, and slicing tools such as Fusion 360, SolidWorks, and Cura to prepare designs for precise manufacturing.',
+  },
+  {
+    q: 'Can you help with design?',
+    a: 'Yes. Share a sketch, reference image, existing part, or rough concept and our team can create ready-to-print 3D models.',
+  },
+  {
+    q: 'How fast can I get a prototype?',
+    a: 'Timelines depend on geometry, material, finish, and quantity, but many prototype reviews can move from file check to production within days.',
   },
 ];
