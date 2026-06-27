@@ -41,7 +41,9 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
   const isKnowledgeActive = currentPage === 'blogs' || currentPage === 'case-studies';
   const isLight = theme === 'light';
   const navLinkClass = (page) => `text-sm font-semibold transition-colors relative py-1 cursor-pointer ${
-    currentPage === page ? 'text-accent-cyan font-bold' : 'text-text-secondary hover:text-text-primary'
+    currentPage === page 
+      ? 'text-accent-cyan font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-accent-cyan after:content-[""]' 
+      : 'text-text-secondary hover:text-text-primary'
   }`;
   const mobileLinkClass = (page) => `text-lg font-semibold transition-colors ${
     currentPage === page ? 'text-accent-cyan' : 'text-text-secondary'
@@ -70,9 +72,6 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
             onClick={() => handleNavClick('home')}
           >
             Home
-            {currentPage === 'home' && (
-              <motion.span layoutId="activeUnderline" className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent-cyan" />
-            )}
           </button>
           
           <button 
@@ -80,9 +79,6 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
             onClick={() => handleNavClick('about')}
           >
             About
-            {currentPage === 'about' && (
-              <motion.span layoutId="activeUnderline" className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent-cyan" />
-            )}
           </button>
           
           <div
@@ -96,9 +92,6 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
             >
               Services
               <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-              {currentPage === 'services' && (
-                <motion.span layoutId="activeUnderline" className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent-cyan" />
-              )}
             </button>
             <AnimatePresence>
               {servicesOpen && (
@@ -136,15 +129,14 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
           >
             <button 
               className={`text-sm font-semibold transition-colors relative py-1 cursor-pointer flex items-center gap-1.5 ${
-                isKnowledgeActive ? 'text-accent-cyan font-bold' : 'text-text-secondary hover:text-text-primary'
+                isKnowledgeActive 
+                  ? 'text-accent-cyan font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-accent-cyan after:content-[""]' 
+                  : 'text-text-secondary hover:text-text-primary'
               }`}
               onClick={() => setKnowledgeOpen((open) => !open)}
             >
               Knowledge Base
               <ChevronDown size={14} className={`transition-transform ${knowledgeOpen ? 'rotate-180' : ''}`} />
-              {isKnowledgeActive && (
-                <motion.span layoutId="activeUnderline" className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent-cyan" />
-              )}
             </button>
             <AnimatePresence>
               {knowledgeOpen && (
@@ -177,9 +169,6 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
             onClick={() => handleNavClick('contact')}
           >
             Contact Us
-            {currentPage === 'contact' && (
-              <motion.span layoutId="activeUnderline" className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent-cyan" />
-            )}
           </button>
         </div>
 
