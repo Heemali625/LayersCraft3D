@@ -114,7 +114,11 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
                       <button
                         key={service.title}
                         onClick={() => handleNavClick('services')}
-                        className="w-full text-left px-4 py-2.5 rounded-lg text-sm font-semibold text-text-secondary hover:text-text-primary hover:bg-white/[0.04] transition-all cursor-pointer"
+                        className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
+                          currentPage === 'services' 
+                            ? 'text-accent-cyan bg-white/[0.06]' 
+                            : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'
+                        }`}
                       >
                         {service.title}
                       </button>
@@ -152,8 +156,16 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
                   className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-48"
                 >
                   <div className="premium-card rounded-xl p-2">
-                    <button onClick={() => handleNavClick('blogs')} className="w-full text-left px-4 py-3 rounded-lg text-sm font-semibold text-text-secondary hover:text-text-primary hover:bg-white/[0.04] transition-all cursor-pointer">Blogs</button>
-                    <button onClick={() => handleNavClick('case-studies')} className="w-full text-left px-4 py-3 rounded-lg text-sm font-semibold text-text-secondary hover:text-text-primary hover:bg-white/[0.04] transition-all cursor-pointer">Case Studies</button>
+                    <button onClick={() => handleNavClick('blogs')} className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
+                      currentPage === 'blogs' 
+                        ? 'text-accent-cyan bg-white/[0.06]' 
+                        : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'
+                    }`}>Blogs</button>
+                    <button onClick={() => handleNavClick('case-studies')} className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
+                      currentPage === 'case-studies' 
+                        ? 'text-accent-cyan bg-white/[0.06]' 
+                        : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'
+                    }`}>Case Studies</button>
                   </div>
                 </motion.div>
               )}
@@ -241,17 +253,17 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
             >
               Services
             </button>
-            <div className="flex flex-col items-center gap-2 -mt-2">
+            <div className={`flex flex-col items-center gap-2 -mt-2 ${currentPage === 'services' ? 'opacity-100' : ''}`}>
               {services.map((service) => (
-                <button key={service.title} className="text-text-muted text-sm font-semibold" onClick={() => handleNavClick('services')}>
+                <button key={service.title} className={`text-sm font-semibold ${currentPage === 'services' ? 'text-accent-cyan' : 'text-text-muted'}`} onClick={() => handleNavClick('services')}>
                   {service.title}
                 </button>
               ))}
             </div>
             <div className="flex flex-col items-center gap-3 py-2">
               <span className="text-xs font-bold uppercase tracking-[0.16em] text-text-muted">Knowledge Base</span>
-              <button className={mobileLinkClass('blogs')} onClick={() => handleNavClick('blogs')}>Blogs</button>
-              <button className={mobileLinkClass('case-studies')} onClick={() => handleNavClick('case-studies')}>Case Studies</button>
+              <button className={`text-lg font-semibold transition-colors ${currentPage === 'blogs' ? 'text-accent-cyan' : 'text-text-secondary'}`} onClick={() => handleNavClick('blogs')}>Blogs</button>
+              <button className={`text-lg font-semibold transition-colors ${currentPage === 'case-studies' ? 'text-accent-cyan' : 'text-text-secondary'}`} onClick={() => handleNavClick('case-studies')}>Case Studies</button>
             </div>
             <button 
               className={mobileLinkClass('contact')}
