@@ -29,7 +29,7 @@ export default function CTASection({ setCurrentPage }) {
           <div className="flex justify-center w-full">
             <button 
               onClick={handleCTA}
-              className="relative px-8 py-4 rounded-xl text-base font-bold text-white select-none cursor-pointer bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_35px_rgba(6,182,212,0.65)] hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300"
+              className="cta-button relative px-8 py-4 rounded-xl text-base font-bold text-white select-none cursor-pointer bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_35px_rgba(6,182,212,0.65)] hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300"
             >
               <span className="flex items-center gap-2.5">
                 Talk to Our Team

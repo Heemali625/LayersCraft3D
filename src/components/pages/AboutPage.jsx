@@ -7,7 +7,7 @@ import { BentoPanel, EditorialBlock, PageHero, Timeline, VisualPlate } from './P
 
 export default function AboutPage({ setCurrentPage }) {
   return (
-    <div className="bg-bg-primary text-text-primary">
+    <div className="about-page bg-bg-primary text-text-primary">
       <PageHero
         eyebrow="About LayerCraft3D"
         title="Turning imagination into buildable product reality."
@@ -21,7 +21,7 @@ export default function AboutPage({ setCurrentPage }) {
         copy="The work begins with a simple promise: make product development feel less uncertain. We combine 3D design, prototyping, scanning, printing, and machining so teams can move from abstract sketches to tangible, testable components."
       >
         <VisualPlate label="Experience the Future of Creativity" title="Turn your imagination into reality through 3D printing.">
-          <img src={aboutImage} alt="LayerCraft3D production setting" className="absolute inset-0 w-full h-full object-cover opacity-65 mix-blend-screen" />
+          <img src={aboutImage} alt="LayerCraft3D production setting" className="absolute inset-0 w-full h-full object-cover opacity-65 mix-blend-screen visual-plate-image" />
         </VisualPlate>
       </EditorialBlock>
 

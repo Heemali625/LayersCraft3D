@@ -81,6 +81,62 @@ body {
   -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black, transparent 80%);
 }
 
+.light .bg-grid-overlay {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.065) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.065) 1px, transparent 1px);
+}
+
+.light .cta-button {
+  box-shadow: 0 20px 45px rgba(8,145,178,0.18);
+}
+
+.light .cta-button:hover {
+  box-shadow: 0 0 40px rgba(8,145,178,0.35);
+}
+
+/* Stronger CTA contrast for light mode only (preserve dark mode) */
+.light .cta-button {
+  background: linear-gradient(90deg, rgba(7,130,143,1) 0%, rgba(3,105,161,1) 50%, rgba(124,58,237,1) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.light .cta-button span {
+  color: inherit;
+}
+
+.light .cta-button:active {
+  transform: translateY(0.5px) scale(0.99);
+}
+
+.light .about-page .premium-card {
+  background: rgba(255,255,255,0.92);
+}
+
+.light .about-page .premium-card h3,
+.light .about-page .premium-card span,
+.light .about-page .premium-card p {
+  color: var(--color-text-primary);
+}
+
+.light .about-page .premium-card h3 {
+  color: var(--color-text-primary);
+}
+
+.light .about-page .visual-plate-image {
+  opacity: 0.92;
+  mix-blend-mode: normal;
+}
+
+.light .about-page .visual-plate-backdrop {
+  background: radial-gradient(circle_at_35%_25%,rgba(6,182,212,0.12),transparent_36%),radial-gradient(circle_at_80%_70%,rgba(245,158,11,0.08),transparent_38%);
+}
+
+.light .about-page .visual-plate-grid {
+  opacity: 0.32;
+}
+
 .premium-section {
   position: relative;
   isolation: isolate;
@@ -268,4 +324,63 @@ body {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Portfolio: light-mode overrides to improve readability without affecting dark mode */
+.light #portfolio .ambient-overlay {
+  background: linear-gradient(to top, rgba(255,255,255,0.88), rgba(255,255,255,0.6), rgba(255,255,255,0.02));
+  mix-blend-mode: normal;
+}
+
+.light #portfolio .top-sheen {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+  opacity: 0.6;
+}
+
+.light #portfolio .tech-badge {
+  background: rgba(255,255,255,0.78);
+  color: var(--color-text-primary);
+  border-color: rgba(0,0,0,0.06);
+  backdrop-filter: blur(6px);
+}
+
+.light #portfolio .details-card {
+  background: rgba(255,255,255,0.92);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-color);
+  box-shadow: 0 12px 40px rgba(16,24,40,0.06);
+}
+
+.light #portfolio .details-card .text-text-secondary,
+.light #portfolio .details-card p,
+.light #portfolio .details-card li {
+  color: var(--color-text-secondary);
+}
+
+/* About Us light-mode-only fixes */
+.light #about .about-image-card {
+  box-shadow: 0 20px 80px rgba(15,23,42,0.12);
+  border: 1px solid rgba(15,23,42,0.06);
+}
+
+.light #about .about-image-badge {
+  background: rgba(15,23,42,0.8);
+  border-color: rgba(255,255,255,0.12);
+}
+
+.light #about .about-image-badge .font-heading {
+  color: #f8fafc;
+}
+
+.light .about-page .visual-plate-backdrop {
+  background: radial-gradient(circle_at_35%_25%,rgba(15,23,42,0.32),transparent_36%),radial-gradient(circle_at_80%_70%,rgba(15,23,42,0.18),transparent_38%);
+}
+
+.light .about-page .visual-plate-title {
+  color: #ffffff !important;
+  text-shadow: 0 14px 35px rgba(15,23,42,0.28);
+}
+
+.light .about-page .visual-plate-label {
+  color: rgba(255,255,255,0.88) !important;
 }

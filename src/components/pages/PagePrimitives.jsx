@@ -83,14 +83,14 @@ export function VisualPlate({ label, title, children }) {
     <motion.div
       whileHover={{ y: -6, rotate: 0.2 }}
       transition={{ duration: 0.35 }}
-      className="relative min-h-[360px] rounded-3xl overflow-hidden premium-card flex items-end"
+      className="visual-plate relative min-h-[360px] rounded-3xl overflow-hidden premium-card flex items-end"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_25%,rgba(6,182,212,0.18),transparent_36%),radial-gradient(circle_at_80%_70%,rgba(245,158,11,0.12),transparent_38%)]"></div>
-      <div className="absolute inset-0 bg-grid-overlay opacity-50"></div>
+      <div className="visual-plate-backdrop absolute inset-0 bg-[radial-gradient(circle_at_35%_25%,rgba(6,182,212,0.18),transparent_36%),radial-gradient(circle_at_80%_70%,rgba(245,158,11,0.12),transparent_38%)]"></div>
+      <div className="visual-plate-grid absolute inset-0 bg-grid-overlay opacity-50"></div>
       {children}
       <div className="relative z-10 p-7">
-        <span className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-accent-cyan">{label}</span>
-        <h3 className="font-heading text-2xl font-extrabold text-white mt-2 max-w-sm">{title}</h3>
+        <span className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-accent-cyan visual-plate-label">{label}</span>
+        <h3 className="font-heading text-2xl font-extrabold text-white mt-2 max-w-sm visual-plate-title">{title}</h3>
       </div>
     </motion.div>
   );

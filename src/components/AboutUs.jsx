@@ -16,10 +16,10 @@ export default function AboutUs({ setCurrentPage }) {
           
           {/* Left Side: Premium Image */}
           <Reveal className="flex justify-center" direction="left">
-            <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-accent-cyan/20 to-accent-purple/5 hover:from-accent-cyan/40 hover:to-accent-purple/20 max-w-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(6,182,212,0.12)] transition-all duration-500 group cursor-default">
+            <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-accent-cyan/20 to-accent-purple/5 hover:from-accent-cyan/40 hover:to-accent-purple/20 max-w-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(6,182,212,0.12)] transition-all duration-500 group cursor-default about-image-card">
               <img src={aboutImage} alt="High-tech 3D Printing Setting" className="max-w-full h-auto rounded-[15px] object-cover block" />
               <div className="absolute -inset-2.5 border border-white/2 rounded-[24px] pointer-events-none -z-10 group-hover:border-accent-cyan/15 group-hover:scale-[1.015] transition-all duration-500"></div>
-              <div className="absolute left-5 bottom-5 rounded-xl border border-white/10 bg-black/45 px-4 py-3 backdrop-blur-md">
+              <div className="absolute left-5 bottom-5 rounded-xl border border-white/10 bg-black/45 px-4 py-3 backdrop-blur-md about-image-badge">
                 <span className="block text-[10px] uppercase tracking-[0.18em] text-text-muted font-bold">Approach</span>
                 <span className="font-heading text-lg font-bold text-white">Design-first manufacturing</span>
               </div>

@@ -168,16 +168,16 @@ export default function Portfolio() {
                     />
                     
                     {/* Dark Ambient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/48 to-black/5 z-10 transition-opacity duration-300 group-hover:opacity-95" />
-                    <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/10 to-transparent z-10 opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/48 to-black/5 z-10 transition-opacity duration-300 group-hover:opacity-95 ambient-overlay" />
+                    <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/10 to-transparent z-10 opacity-60 top-sheen" />
 
                     {/* Floating Tech Badge */}
-                    <div className="absolute top-5 left-5 z-20 bg-black/60 backdrop-blur-md text-white text-[9px] font-bold tracking-widest px-3 py-1.5 rounded-full border border-white/10 select-none">
+                    <div className="absolute top-5 left-5 z-20 tech-badge bg-black/60 backdrop-blur-md text-white text-[9px] font-bold tracking-widest px-3 py-1.5 rounded-full border border-white/10 select-none">
                       {item.badge}
                     </div>
 
                     {/* Floating Details Card Overlay (Compact dark glassmorphism) */}
-                    <div className="relative z-20 m-5 bg-bg-secondary/95 backdrop-blur-md text-text-primary p-5 rounded-2xl shadow-2xl flex flex-col justify-between border border-white/[0.08] group-hover:border-accent-cyan/30 select-none transition-all duration-500 group-hover:translate-y-[-7px]">
+                    <div className="relative z-20 m-5 bg-bg-secondary/95 backdrop-blur-md text-text-primary p-5 rounded-2xl shadow-2xl flex flex-col justify-between border border-white/[0.08] group-hover:border-accent-cyan/30 select-none transition-all duration-500 group-hover:translate-y-[-7px] details-card">
                       <div>
                         {/* Icon & Title Row */}
                         <div className="flex items-center gap-3 mb-2.5">
