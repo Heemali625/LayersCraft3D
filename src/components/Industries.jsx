@@ -38,12 +38,12 @@ export default function Industries() {
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-text-primary mb-5 text-gradient-premium">
-            Built for the sectors where precision changes outcomes
+            Building Beyond Expectations Across Multiple Sectors
           </h2>
         </Reveal>
         <Reveal delay={0.16}>
           <p className="text-base premium-copy max-w-[650px] mx-auto mb-10">
-            We support creators and industrial teams across India and globally with parts, models, and prototypes that match the practical demands of their category.
+            No matter the sector, we deliver reliable 3D solutions customized to its unique requirements.
           </p>
         </Reveal>
 

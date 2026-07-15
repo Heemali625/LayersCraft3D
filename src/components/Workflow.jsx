@@ -37,16 +37,11 @@ export default function Workflow() {
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary mb-5 text-gradient-premium">
-            A clear path from idea to usable product
+            Layers Craft 3D Makes Your Product Development Simple & Fast
           </h2>
         </Reveal>
-        <Reveal delay={0.16}>
-          <p className="text-base sm:text-lg premium-copy max-w-[650px] mx-auto mb-16">
-            The process stays simple for you, while our team handles the technical decisions behind design, prototyping, testing, and delivery.
-          </p>
-        </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative mt-16">
           {/* Connecting line backdrop for desktop */}
           <motion.div
             initial={{ scaleX: 0 }}

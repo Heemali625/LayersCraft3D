@@ -8,6 +8,7 @@ import Portfolio from './components/Portfolio';
 import TrustedPartners from './components/TrustedPartners';
 import Workflow from './components/Workflow';
 import CTASection from './components/CTASection';
+import FAQSection from './components/FAQSection';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import AboutPage from './components/pages/AboutPage';
@@ -129,6 +130,7 @@ function App() {
             <Industries />
             <Workflow />
             <Testimonials />
+            <FAQSection />
             <CTASection setCurrentPage={setCurrentPage} />
           </div>
         ) : currentPage === 'about' ? (

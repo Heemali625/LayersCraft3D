@@ -108,21 +108,18 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto">
         
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <Reveal className="text-left" direction="left">
-            <span className="section-kicker mb-4">
+        <div className="flex flex-col items-center gap-6 mb-12">
+          <Reveal className="text-center" direction="left">
+            <span className="section-kicker justify-center mb-4">
               Our Portfolio
             </span>
-            <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-text-primary mb-4 text-gradient-premium max-w-3xl">
-              Proof that fast can still feel engineered
+            <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-text-primary text-gradient-premium max-w-3xl">
+              Every Project Reflects Our Excellence
             </h2>
-            <p className="text-sm sm:text-base premium-copy max-w-[680px]">
-              Explore high-precision prototypes and engineering parts built to answer real questions: Will it fit? Will it perform? Can the idea become a reliable product?
-            </p>
           </Reveal>
 
           {/* Navigation Controls */}
-          <Reveal className="flex gap-3 self-start md:self-auto" direction="right" delay={0.1}>
+          <Reveal className="flex gap-3" direction="right" delay={0.1}>
             <button 
               onClick={prevSlide}
               className="w-10 h-10 rounded-full border border-border-color bg-bg-secondary text-text-primary flex items-center justify-center hover:bg-accent-cyan/10 hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 cursor-pointer shadow-md"

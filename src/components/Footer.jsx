@@ -10,9 +10,9 @@ const Linkedin = ({ size = 18 }) => (
   </svg>
 );
 
-const Twitter = ({ size = 18 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+const XLogo = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-7.48L5.52 22H2.4l7.24-8.27L2 2h6.4l4.42 6.84L18.9 2Zm-1.1 18h1.73L7.46 3.9H5.6L17.8 20Z" />
   </svg>
 );
 
@@ -145,8 +145,8 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-[#0a66c2] flex items-center justify-center hover:bg-[#0a66c2]/10 hover:border-[#0a66c2]/30 hover:-translate-y-0.5 transition-all" aria-label="LinkedIn">
                 <Linkedin size={18} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-[#1da1f2] flex items-center justify-center hover:bg-[#1da1f2]/10 hover:border-[#1da1f2]/30 hover:-translate-y-0.5 transition-all" aria-label="Twitter">
-                <Twitter size={18} />
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-black bg-black text-white flex items-center justify-center hover:bg-black/80 hover:-translate-y-0.5 transition-all" aria-label="X">
+                <XLogo size={18} />
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-[#e4405f] flex items-center justify-center hover:bg-[#e4405f]/10 hover:border-[#e4405f]/30 hover:-translate-y-0.5 transition-all" aria-label="Instagram">
                 <Instagram size={18} />

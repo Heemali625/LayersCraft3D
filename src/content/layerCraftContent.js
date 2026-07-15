@@ -14,6 +14,7 @@ import {
   PenTool,
   Rocket,
   Scan,
+  Scissors,
   Settings,
   Timer,
   Truck,
@@ -56,6 +57,12 @@ export const services = [
     desc: 'Strong, high-precision parts produced for reliable real-world performance.',
     detail: 'Used when parts require tighter tolerance, durable materials, or a machining-led finish.',
     icon: Settings,
+  },
+  {
+    title: 'Laser Cutting & Engraving',
+    desc: 'We give you the product with precise cutting and detailed engraving for custom designs and high-quality finishes.',
+    detail: 'Precise cutting and detailed engraving for custom designs and high-quality finishes.',
+    icon: Scissors,
   },
   {
     title: 'Injection Molding',

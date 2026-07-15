@@ -98,16 +98,16 @@ export default function Testimonials() {
         
         {/* Header */}
         <Reveal as="span" className="section-kicker justify-center mb-4">
-          Client Feedback
+          Happy Client Stories
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-text-primary mb-5 text-gradient-premium">
-            What partners notice after the first build
+            Voices of Trust, Quality & Precision
           </h2>
         </Reveal>
         <Reveal delay={0.16}>
           <p className="text-base premium-copy max-w-[640px] mx-auto mb-16">
-            Industrial teams and creators come for speed, then stay for the practical guidance, finish quality, and support through each iteration.
+            Hear directly from businesses that experienced our reliable service and outstanding results with every project.
           </p>
         </Reveal>
 

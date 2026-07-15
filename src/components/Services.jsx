@@ -1,6 +1,6 @@
 import { HoverEffect } from './ui/HoverEffect';
 import Reveal from './ui/Reveal';
-import { Zap, Layers, Box, PenTool, Scan, Settings, Factory } from 'lucide-react';
+import { Zap, Layers, Box, PenTool, Scan, Scissors, Settings, Factory } from 'lucide-react';
 
 export default function Services({ setCurrentPage }) {
   const handleCTA = () => {
@@ -51,6 +51,12 @@ export default function Services({ setCurrentPage }) {
       linkAction: handleCTA
     },
     {
+      title: "Laser Cutting & Engraving",
+      desc: "We give you the product with precise cutting and detailed engraving for custom designs and high-quality finishes.",
+      icon: Scissors,
+      linkAction: handleCTA
+    },
+    {
       title: "Injection Molding",
       desc: "We manufacture high-quality plastic parts efficiently for mass production and consistent results.",
       icon: Factory,
@@ -67,7 +73,7 @@ export default function Services({ setCurrentPage }) {
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-text-primary mb-5 max-w-3xl mx-auto text-gradient-premium">
-            Choose the Best Solutions for Your Business
+            The Best 3D Solutions for your Business
           </h2>
         </Reveal>
         <Reveal delay={0.16}>

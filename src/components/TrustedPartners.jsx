@@ -18,11 +18,8 @@ export default function TrustedPartners() {
         <Reveal>
           <span className="section-kicker mb-4">Trusted Partners</span>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-gradient-premium leading-tight mb-5">
-            Client Logo's
+            Brands We Serve
           </h2>
-          <p className="premium-copy max-w-xl">
-            Trusted by teams that need fast iteration, careful production choices, and direct collaboration.
-          </p>
         </Reveal>
 
         <Reveal delay={0.12} className="relative overflow-hidden py-4">

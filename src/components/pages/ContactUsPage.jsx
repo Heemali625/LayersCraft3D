@@ -5,11 +5,6 @@ import Reveal from '../ui/Reveal';
 import { BentoPanel, EditorialBlock, PageHero, VisualPlate } from './PagePrimitives';
 
 export default function ContactUsPage({ setCurrentPage }) {
-  const goQuote = () => {
-    setCurrentPage('quick-quote');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <div className="bg-bg-primary text-text-primary">
       <PageHero
@@ -54,17 +49,17 @@ export default function ContactUsPage({ setCurrentPage }) {
       <FAQSection title="Contact questions answered" />
 
       <section className="relative py-20 px-6 bg-bg-secondary premium-section">
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto">
           <Reveal>
-            <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-gradient-premium mb-5">
-              Need pricing instead of a conversation?
-            </h2>
-            <p className="premium-copy text-lg max-w-2xl mx-auto mb-8">
-              Use Quick Quote to send service details and upload STL, OBJ, STEP, or STP files.
-            </p>
-            <button onClick={goQuote} className="btn-glow px-7 py-3.5 rounded-lg text-sm font-bold text-text-primary cursor-pointer">
-              Open Quick Quote
-            </button>
+            <div className="rounded-2xl overflow-hidden border border-border-color shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+              <iframe
+                title="LayersCraft3D location in Hyderabad"
+                src="https://www.google.com/maps?q=Hyderabad%2C%20Telangana%2C%20India&z=12&output=embed"
+                className="block w-full h-[380px] border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
