@@ -9,6 +9,7 @@ import {
   Flame,
   Gem,
   HelpCircle,
+  Lightbulb,
   Factory,
   Layers,
   PenTool,
@@ -69,6 +70,12 @@ export const services = [
     desc: 'High-quality plastic parts manufactured efficiently for consistent production results.',
     detail: 'A strong fit when a validated prototype needs repeatable plastic parts for larger production runs.',
     icon: Factory,
+  },
+  {
+    title: '3D Printing Workshop',
+    desc: 'Gain practical 3D printing experience with interactive workshops focused on real-world applications.',
+    detail: 'Interactive workshops that build hands-on 3D printing skills for real-world applications.',
+    icon: Lightbulb,
   },
 ];
 

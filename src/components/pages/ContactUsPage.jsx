@@ -1,4 +1,4 @@
-import { Clock, Mail, MapPin, MessageSquare, PhoneCall } from 'lucide-react';
+import { Clock, Mail, MapPin, MessageSquare, Phone, PhoneCall } from 'lucide-react';
 import CTASection from '../CTASection';
 import FAQSection from '../FAQSection';
 import Reveal from '../ui/Reveal';
@@ -26,9 +26,10 @@ export default function ContactUsPage({ setCurrentPage }) {
       </EditorialBlock>
 
       <section className="relative py-20 px-6 premium-section overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-5">
           {[
-            { label: 'Email Support', value: 'support@domain.com', icon: Mail },
+            { label: 'Email Support', value: 'print@layerscarft3d.com', icon: Mail },
+            { label: 'Phone Support', value: '+91 8247606508', icon: Phone },
             { label: 'Business Address', value: 'Hyderabad, Telangana, India', icon: MapPin },
             { label: 'Turnaround Details', value: 'Design review quotes provided within 24 hours.', icon: Clock },
           ].map((item, idx) => {
@@ -48,21 +49,6 @@ export default function ContactUsPage({ setCurrentPage }) {
 
       <FAQSection title="Contact questions answered" />
 
-      <section className="relative py-20 px-6 bg-bg-secondary premium-section">
-        <div className="max-w-5xl mx-auto">
-          <Reveal>
-            <div className="rounded-2xl overflow-hidden border border-border-color shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-              <iframe
-                title="LayersCraft3D location in Hyderabad"
-                src="https://www.google.com/maps?q=Hyderabad%2C%20Telangana%2C%20India&z=12&output=embed"
-                className="block w-full h-[380px] border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </Reveal>
-        </div>
-      </section>
       <CTASection setCurrentPage={setCurrentPage} />
     </div>
   );

@@ -1,6 +1,9 @@
 import logoWhite from '../assets/logo/LC3D_Logo_White_High_Res.png';
 import logoBlack from '../assets/logo/LC3D_Logo_Black_High_Res.png';
-import { Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
+import { services } from '../data/services';
+
+const LOCATION_URL = 'https://maps.app.goo.gl/HidNNuHFzNKbs2vE9';
 
 const Linkedin = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -30,6 +33,13 @@ const Facebook = ({ size = 18 }) => (
   </svg>
 );
 
+const Youtube = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M19.615 3.175c-2.308-1.69-9.923-1.69-12.231 0-2.308 1.69-2.308 4.436 0 6.126.769.564 1.846 1.028 3.231 1.282V22h4V11.692c1.385-.254 2.462-.718 3.231-1.282 2.308-1.69 2.308-4.436 0-6.235z" />
+  </svg>
+);
+
+
 export default function Footer({ setCurrentPage, scrollToSection, theme }) {
   const isLight = theme === 'light';
   const handleNavClick = (page, sectionId) => {
@@ -47,7 +57,7 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
   return (
     <footer className="bg-bg-secondary py-16 px-6 relative z-10 mt-auto">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
           {/* Column 1: Logo & Tagline */}
           <div className="flex flex-col items-start">
             <img 
@@ -78,14 +88,6 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
                   className="text-sm text-text-secondary hover:text-accent-cyan hover:translate-x-1 transition-all cursor-pointer bg-transparent border-none p-0 text-left"
                 >
                   About
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => handleNavClick('services')}
-                  className="text-sm text-text-secondary hover:text-accent-cyan hover:translate-x-1 transition-all cursor-pointer bg-transparent border-none p-0 text-left"
-                >
-                  Services
                 </button>
               </li>
               <li>
@@ -123,7 +125,24 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
             </ul>
           </div>
 
-          {/* Column 3: Contact Details */}
+          {/* Column 3: Services */}
+          <div className="flex flex-col items-start text-left">
+            <h4 className="text-sm font-bold text-text-primary uppercase tracking-wider mb-5 font-heading">Services</h4>
+            <ul className="flex flex-col gap-3 items-start">
+              {services.map((service) => (
+                <li key={service.id}>
+                  <button
+                    onClick={() => handleNavClick('services')}
+                    className="text-sm text-text-secondary hover:text-accent-cyan hover:translate-x-1 transition-all cursor-pointer bg-transparent border-none p-0 text-left"
+                  >
+                    {service.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Contact Details */}
           <div className="flex flex-col items-start text-left">
             <h4 className="text-sm font-bold text-text-primary uppercase tracking-wider mb-5 font-heading">Contact Us</h4>
             <ul className="flex flex-col gap-4 items-start text-sm text-text-secondary">
@@ -132,13 +151,17 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
                 <span>Hyderabad, Telangana, India</span>
               </li>
               <li className="flex items-start gap-3">
+                <Phone size={18} className="text-accent-cyan flex-shrink-0 mt-0.5" />
+                <a href="tel:+918247606508" className="hover:text-accent-cyan transition-colors">+91 8247606508</a>
+              </li>
+              <li className="flex items-start gap-3">
                 <Mail size={18} className="text-accent-cyan flex-shrink-0 mt-0.5" />
-                <a href="mailto:support@domain.com" className="hover:text-accent-cyan transition-colors">support@domain.com</a>
+                <a href="mailto:print@layerscarft3d.com" className="hover:text-accent-cyan transition-colors">print@layerscarft3d.com</a>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Social Handles */}
+          {/* Column 5: Social Handles */}
           <div className="flex flex-col items-start text-left">
             <h4 className="text-sm font-bold text-text-primary uppercase tracking-wider mb-5 font-heading">Follow Us</h4>
             <div className="flex gap-3">
@@ -154,8 +177,31 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-[#1877f2] flex items-center justify-center hover:bg-[#1877f2]/10 hover:border-[#1877f2]/30 hover:-translate-y-0.5 transition-all" aria-label="Facebook">
                 <Facebook size={18} />
               </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-border-color bg-bg-primary text-[#ff0000] flex items-center justify-center hover:bg-[#ff0000]/10 hover:border-[#ff0000]/30 hover:-translate-y-0.5 transition-all" aria-label="YouTube">
+                <Youtube size={18} />
+              </a>
             </div>
           </div>
+        </div>
+
+        <div className="rounded-2xl overflow-hidden border border-border-color bg-bg-primary shadow-[0_20px_60px_rgba(0,0,0,0.2)]">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-6 py-5">
+            <div>
+              <h4 className="text-sm font-bold text-text-primary uppercase tracking-wider font-heading">Visit Us</h4>
+              <p className="text-sm text-text-secondary mt-1">Hyderabad, Telangana, India</p>
+            </div>
+            <a href={LOCATION_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-accent-cyan hover:text-text-primary transition-colors">
+              <MapPin size={17} />
+              Open in Google Maps
+            </a>
+          </div>
+          <iframe
+            title="LayersCraft3D location"
+            src="https://www.google.com/maps?q=Hyderabad%2C%20Telangana%2C%20India&z=12&output=embed"
+            className="block w-full h-52 border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
 
         {/* Footer Bottom Bar */}

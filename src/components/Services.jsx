@@ -1,6 +1,6 @@
 import { HoverEffect } from './ui/HoverEffect';
 import Reveal from './ui/Reveal';
-import { Zap, Layers, Box, PenTool, Scan, Scissors, Settings, Factory } from 'lucide-react';
+import { Zap, Layers, Box, PenTool, Scan, Scissors, Settings, Factory, Lightbulb } from 'lucide-react';
 
 export default function Services({ setCurrentPage }) {
   const handleCTA = () => {
@@ -60,6 +60,12 @@ export default function Services({ setCurrentPage }) {
       title: "Injection Molding",
       desc: "We manufacture high-quality plastic parts efficiently for mass production and consistent results.",
       icon: Factory,
+      linkAction: handleCTA
+    },
+    {
+      title: "3D Printing Workshop",
+      desc: "Gain practical 3D printing experience with interactive workshops focused on real-world applications.",
+      icon: Lightbulb,
       linkAction: handleCTA
     }
   ];
