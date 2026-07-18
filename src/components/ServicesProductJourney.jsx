@@ -62,23 +62,31 @@ const services = [
     deliverables: ['Production-ready molded parts', 'Material and finish guidance', 'Tooling review support', 'Batch consistency checks'],
     useCase: 'A product team needed a validated enclosure moved from prototype to repeatable plastic production. We reviewed the geometry, advised on mold-ready design choices, and prepared the path for consistent manufacturing.',
   },
+  {
+    id: 'workshop', step: '08', title: '3D Printing Workshop',
+    tagline: 'Learn 3D printing through hands-on experience',
+    description: 'Our 3D printing workshops provide hands-on training in modeling, file preparation, print settings, material selection, and post-processing techniques. Participants learn real-world applications across industries and how to optimize designs for additive manufacturing.',
+    applications: ['Corporate team training', 'Design optimization workshops', 'Manufacturing best practices', 'Additive manufacturing fundamentals'],
+    deliverables: ['Hands-on workshop experience', 'Training materials and guides', 'Post-processing techniques', 'Real-world case study reviews'],
+    useCase: 'An engineering team attended our workshop to learn optimal design strategies for 3D printing. They gained practical skills and returned to their projects with improved output quality.',
+  },
 ];
 
 const Illustrations = {
   '01': (
     <svg viewBox="0 0 260 200" className="w-full h-full" fill="none">
       <rect x="0" y="0" width="260" height="200" rx="8" fill="#0d0e12" />
-      <rect x="0" y="0" width="260" height="200" rx="8" stroke="#06b6d4" strokeWidth="0.15" strokeOpacity="0.2" />
-      {[...Array(9)].map((_, i) => <line key={`h${i}`} x1="0" y1={20+20*i} x2="260" y2={20+20*i} stroke="#06b6d4" strokeWidth="0.08" strokeOpacity="0.12" />)}
-      {[...Array(12)].map((_, i) => <line key={`v${i}`} x1={20+20*i} y1="0" x2={20+20*i} y2="200" stroke="#06b6d4" strokeWidth="0.08" strokeOpacity="0.12" />)}
-      <path d="M80 140 L80 70 L130 45 L180 70 L180 140 L130 165 Z" stroke="#06b6d4" strokeWidth="1.2" strokeOpacity="0.3" fill="#06b6d4" fillOpacity="0.04" />
-      <path d="M80 70 L130 95 L180 70" stroke="#06b6d4" strokeWidth="0.6" strokeOpacity="0.2" fill="none" />
-      <path d="M130 45 L130 95" stroke="#06b6d4" strokeWidth="0.6" strokeOpacity="0.2" fill="none" />
-      <line x1="45" y1="140" x2="75" y2="140" stroke="#3b82f6" strokeWidth="0.5" strokeOpacity="0.4" />
-      <line x1="45" y1="70" x2="45" y2="140" stroke="#3b82f6" strokeWidth="0.3" strokeOpacity="0.2" />
-      <line x1="40" y1="70" x2="50" y2="70" stroke="#3b82f6" strokeWidth="0.4" strokeOpacity="0.3" />
-      <line x1="40" y1="140" x2="50" y2="140" stroke="#3b82f6" strokeWidth="0.4" strokeOpacity="0.3" />
-      <text x="42" y="108" fill="#3b82f6" fontSize="6" opacity="0.4" transform="rotate(-90 42 108)">70mm</text>
+      <rect x="0" y="0" width="260" height="200" rx="8" stroke="#E63946" strokeWidth="0.15" strokeOpacity="0.2" />
+      {[...Array(9)].map((_, i) => <line key={`h${i}`} x1="0" y1={20+20*i} x2="260" y2={20+20*i} stroke="#E63946" strokeWidth="0.08" strokeOpacity="0.12" />)}
+      {[...Array(12)].map((_, i) => <line key={`v${i}`} x1={20+20*i} y1="0" x2={20+20*i} y2="200" stroke="#E63946" strokeWidth="0.08" strokeOpacity="0.12" />)}
+      <path d="M80 140 L80 70 L130 45 L180 70 L180 140 L130 165 Z" stroke="#E63946" strokeWidth="1.2" strokeOpacity="0.3" fill="#E63946" fillOpacity="0.04" />
+      <path d="M80 70 L130 95 L180 70" stroke="#E63946" strokeWidth="0.6" strokeOpacity="0.2" fill="none" />
+      <path d="M130 45 L130 95" stroke="#E63946" strokeWidth="0.6" strokeOpacity="0.2" fill="none" />
+      <line x1="45" y1="140" x2="75" y2="140" stroke="#C1121F" strokeWidth="0.5" strokeOpacity="0.4" />
+      <line x1="45" y1="70" x2="45" y2="140" stroke="#C1121F" strokeWidth="0.3" strokeOpacity="0.2" />
+      <line x1="40" y1="70" x2="50" y2="70" stroke="#C1121F" strokeWidth="0.4" strokeOpacity="0.3" />
+      <line x1="40" y1="140" x2="50" y2="140" stroke="#C1121F" strokeWidth="0.4" strokeOpacity="0.3" />
+      <text x="42" y="108" fill="#C1121F" fontSize="6" opacity="0.4" transform="rotate(-90 42 108)">70mm</text>
       <circle cx="160" cy="55" r="8" stroke="#f59e0b" strokeWidth="0.4" strokeOpacity="0.3" fill="none" />
       <line x1="168" y1="55" x2="180" y2="45" stroke="#f59e0b" strokeWidth="0.3" strokeOpacity="0.2" />
       <text x="181" y="47" fill="#f59e0b" fontSize="5" opacity="0.35">R8</text>
@@ -87,23 +95,23 @@ const Illustrations = {
   '02': (
     <svg viewBox="0 0 260 200" className="w-full h-full" fill="none">
       <rect x="0" y="0" width="260" height="200" rx="8" fill="#0d0e12" />
-      <rect x="0" y="0" width="260" height="200" rx="8" stroke="#3b82f6" strokeWidth="0.15" strokeOpacity="0.2" />
-      <circle cx="130" cy="95" r="50" stroke="#3b82f6" strokeWidth="0.6" strokeOpacity="0.2" fill="#3b82f6" fillOpacity="0.02" />
-      <circle cx="130" cy="95" r="35" stroke="#3b82f6" strokeWidth="0.4" strokeOpacity="0.15" fill="none" />
-      <circle cx="130" cy="95" r="20" stroke="#3b82f6" strokeWidth="0.3" strokeOpacity="0.12" fill="none" />
-      <line x1="130" y1="40" x2="130" y2="150" stroke="#3b82f6" strokeWidth="0.3" strokeOpacity="0.15" />
-      <line x1="75" y1="95" x2="185" y2="95" stroke="#3b82f6" strokeWidth="0.3" strokeOpacity="0.15" />
+      <rect x="0" y="0" width="260" height="200" rx="8" stroke="#C1121F" strokeWidth="0.15" strokeOpacity="0.2" />
+      <circle cx="130" cy="95" r="50" stroke="#C1121F" strokeWidth="0.6" strokeOpacity="0.2" fill="#C1121F" fillOpacity="0.02" />
+      <circle cx="130" cy="95" r="35" stroke="#C1121F" strokeWidth="0.4" strokeOpacity="0.15" fill="none" />
+      <circle cx="130" cy="95" r="20" stroke="#C1121F" strokeWidth="0.3" strokeOpacity="0.12" fill="none" />
+      <line x1="130" y1="40" x2="130" y2="150" stroke="#C1121F" strokeWidth="0.3" strokeOpacity="0.15" />
+      <line x1="75" y1="95" x2="185" y2="95" stroke="#C1121F" strokeWidth="0.3" strokeOpacity="0.15" />
       {[
         [95,72],[108,68],[120,75],[135,65],[148,70],[160,78],
         [102,82],[115,88],[140,85],[155,90],[98,98],[112,105],
         [125,110],[142,108],[158,102],[88,90],[168,85],[130,55],[130,130]
-      ].map(([cx,cy],i) => <circle key={i} cx={cx} cy={cy} r={1+(i%2===0?0.4:0)} fill="#3b82f6" fillOpacity={0.3+Math.random()*0.2} />)}
-      <rect x="110" y="20" width="40" height="16" rx="3" stroke="#3b82f6" strokeWidth="0.5" strokeOpacity="0.3" fill="#3b82f6" fillOpacity="0.04" />
-      <rect x="118" y="24" width="24" height="8" rx="2" fill="#3b82f6" fillOpacity="0.08" />
-      <circle cx="130" cy="28" r="2" fill="#3b82f6" fillOpacity="0.2" />
-      <path d="M80 150 L85 125 L105 115 L130 120 L155 115 L175 125 L180 150" stroke="#06b6d4" strokeWidth="0.5" strokeOpacity="0.2" fill="none" strokeDasharray="2 3" />
-      <rect x="60" y="170" width="140" height="14" rx="2" stroke="#3b82f6" strokeWidth="0.2" strokeOpacity="0.15" fill="#3b82f6" fillOpacity="0.03" />
-      <text x="75" y="180" fill="#3b82f6" fontSize="5" opacity="0.35">POINT CLOUD  •  84,291 VERTICES  •  0.04mm RES</text>
+      ].map(([cx,cy],i) => <circle key={i} cx={cx} cy={cy} r={1+(i%2===0?0.4:0)} fill="#C1121F" fillOpacity={0.3+Math.random()*0.2} />)}
+      <rect x="110" y="20" width="40" height="16" rx="3" stroke="#C1121F" strokeWidth="0.5" strokeOpacity="0.3" fill="#C1121F" fillOpacity="0.04" />
+      <rect x="118" y="24" width="24" height="8" rx="2" fill="#C1121F" fillOpacity="0.08" />
+      <circle cx="130" cy="28" r="2" fill="#C1121F" fillOpacity="0.2" />
+      <path d="M80 150 L85 125 L105 115 L130 120 L155 115 L175 125 L180 150" stroke="#E63946" strokeWidth="0.5" strokeOpacity="0.2" fill="none" strokeDasharray="2 3" />
+      <rect x="60" y="170" width="140" height="14" rx="2" stroke="#C1121F" strokeWidth="0.2" strokeOpacity="0.15" fill="#C1121F" fillOpacity="0.03" />
+      <text x="75" y="180" fill="#C1121F" fontSize="5" opacity="0.35">POINT CLOUD  •  84,291 VERTICES  •  0.04mm RES</text>
     </svg>
   ),
   '03': (
@@ -133,7 +141,7 @@ const Illustrations = {
       {[
         {x:20,c:'#f59e0b',t:'ABS-M30',d:'Tensile: 36 MPa|HDT: 96°C|Elong: 4%'},
         {x:97,c:'#10b981',t:'PA12 CF',d:'Tensile: 72 MPa|HDT: 145°C|Elong: 1.5%'},
-        {x:174,c:'#06b6d4',t:'Resin Tough',d:'Tensile: 58 MPa|HDT: 82°C|Elong: 12%'},
+        {x:174,c:'#E63946',t:'Resin Tough',d:'Tensile: 58 MPa|HDT: 82°C|Elong: 12%'},
       ].map((m,i) => (
         <g key={i}>
           <rect x={m.x} y="30" width="65" height="85" rx="4" stroke={m.c} strokeWidth="0.3" strokeOpacity="0.2" fill={m.c} fillOpacity="0.03" />
@@ -175,22 +183,42 @@ const Illustrations = {
   '06': (
     <svg viewBox="0 0 260 200" className="w-full h-full" fill="none">
       <rect x="0" y="0" width="260" height="200" rx="8" fill="#0d0e12" />
-      <rect x="0" y="0" width="260" height="200" rx="8" stroke="#06b6d4" strokeWidth="0.15" strokeOpacity="0.2" />
-      <rect x="60" y="60" width="100" height="80" rx="2" fill="#06b6d4" fillOpacity="0.03" stroke="#06b6d4" strokeWidth="0.4" strokeOpacity="0.15" />
-      <path d="M70 100 L80 85 L95 92 L110 70 L125 88 L140 78 L150 95" stroke="#06b6d4" strokeWidth="0.5" strokeOpacity="0.25" fill="none" />
+      <rect x="0" y="0" width="260" height="200" rx="8" stroke="#E63946" strokeWidth="0.15" strokeOpacity="0.2" />
+      <rect x="60" y="60" width="100" height="80" rx="2" fill="#E63946" fillOpacity="0.03" stroke="#E63946" strokeWidth="0.4" strokeOpacity="0.15" />
+      <path d="M70 100 L80 85 L95 92 L110 70 L125 88 L140 78 L150 95" stroke="#E63946" strokeWidth="0.5" strokeOpacity="0.25" fill="none" />
       {[[70,100],[80,85],[95,92],[110,70],[125,88],[140,78],[150,95]].map(([x,y],i) => (
-        <circle key={i} cx={x} cy={y} r="1.5" fill="#06b6d4" fillOpacity="0.3" />
+        <circle key={i} cx={x} cy={y} r="1.5" fill="#E63946" fillOpacity="0.3" />
       ))}
-      <rect x="100" y="20" width="30" height="20" rx="2" fill="#06b6d4" fillOpacity="0.08" stroke="#06b6d4" strokeWidth="0.3" strokeOpacity="0.2" />
+      <rect x="100" y="20" width="30" height="20" rx="2" fill="#E63946" fillOpacity="0.08" stroke="#E63946" strokeWidth="0.3" strokeOpacity="0.2" />
       <rect x="110" y="40" width="10" height="15" rx="1" fill="#a855f7" fillOpacity="0.1" stroke="#a855f7" strokeWidth="0.25" strokeOpacity="0.2" />
       <path d="M112 58 L110 68 L120 68 L118 58 Z" fill="#a855f7" fillOpacity="0.12" stroke="#a855f7" strokeWidth="0.2" strokeOpacity="0.2" />
-      <rect x="170" y="35" width="65" height="65" rx="3" stroke="#06b6d4" strokeWidth="0.15" strokeOpacity="0.12" fill="#06b6d4" fillOpacity="0.02" />
-      <text x="178" y="48" fill="#06b6d4" fontSize="4" opacity="0.3">SPINDLE</text>
-      <text x="178" y="56" fill="#06b6d4" fontSize="5" opacity="0.45">15,000 RPM</text>
-      <text x="178" y="74" fill="#06b6d4" fontSize="5" opacity="0.45">2,400 mm/min</text>
-      <text x="178" y="92" fill="#06b6d4" fontSize="5" opacity="0.45">±0.02mm</text>
-      <rect x="60" y="170" width="140" height="10" rx="2" stroke="#06b6d4" strokeWidth="0.15" strokeOpacity="0.1" fill="none" />
-      <text x="72" y="178" fill="#06b6d4" fontSize="4" opacity="0.25">TOOL:  D6 CARBIDE  •  3-AXIS  •  AL 7075</text>
+      <rect x="170" y="35" width="65" height="65" rx="3" stroke="#E63946" strokeWidth="0.15" strokeOpacity="0.12" fill="#E63946" fillOpacity="0.02" />
+      <text x="178" y="48" fill="#E63946" fontSize="4" opacity="0.3">SPINDLE</text>
+      <text x="178" y="56" fill="#E63946" fontSize="5" opacity="0.45">15,000 RPM</text>
+      <text x="178" y="74" fill="#E63946" fontSize="5" opacity="0.45">2,400 mm/min</text>
+      <text x="178" y="92" fill="#E63946" fontSize="5" opacity="0.45">±0.02mm</text>
+      <rect x="60" y="170" width="140" height="10" rx="2" stroke="#E63946" strokeWidth="0.15" strokeOpacity="0.1" fill="none" />
+      <text x="72" y="178" fill="#E63946" fontSize="4" opacity="0.25">TOOL:  D6 CARBIDE  •  3-AXIS  •  AL 7075</text>
+    </svg>
+  ),
+  '08': (
+    <svg viewBox="0 0 260 200" className="w-full h-full" fill="none">
+      <rect x="0" y="0" width="260" height="200" rx="8" fill="#0d0e12" />
+      <rect x="0" y="0" width="260" height="200" rx="8" stroke="#a855f7" strokeWidth="0.15" strokeOpacity="0.2" />
+      <circle cx="130" cy="90" r="45" stroke="#a855f7" strokeWidth="0.3" strokeOpacity="0.15" fill="none" />
+      <path d="M100 70 L130 50 L160 70 L160 110 L100 110 Z" stroke="#a855f7" strokeWidth="0.6" strokeOpacity="0.25" fill="#a855f7" fillOpacity="0.05" />
+      <rect x="105" y="75" width="50" height="28" rx="2" fill="#a855f7" fillOpacity="0.08" stroke="#a855f7" strokeWidth="0.3" strokeOpacity="0.2" />
+      <line x1="115" y1="78" x2="145" y2="78" stroke="#E63946" strokeWidth="0.4" strokeOpacity="0.25" />
+      <line x1="115" y1="84" x2="140" y2="84" stroke="#E63946" strokeWidth="0.3" strokeOpacity="0.2" />
+      <line x1="115" y1="90" x2="140" y2="90" stroke="#E63946" strokeWidth="0.3" strokeOpacity="0.2" />
+      <line x1="115" y1="96" x2="135" y2="96" stroke="#E63946" strokeWidth="0.3" strokeOpacity="0.2" />
+      <circle cx="70" cy="140" r="12" stroke="#a855f7" strokeWidth="0.4" strokeOpacity="0.2" fill="#a855f7" fillOpacity="0.04" />
+      <circle cx="70" cy="140" r="5" stroke="#E63946" strokeWidth="0.3" strokeOpacity="0.25" fill="none" />
+      <path d="M70 135 L70 145 M65 140 L75 140" stroke="#E63946" strokeWidth="0.3" strokeOpacity="0.25" />
+      <circle cx="190" cy="140" r="12" stroke="#a855f7" strokeWidth="0.4" strokeOpacity="0.2" fill="#a855f7" fillOpacity="0.04" />
+      <text x="185" y="143" fill="#a855f7" fontSize="6" opacity="0.35">+</text>
+      <rect x="50" y="160" width="160" height="20" rx="3" stroke="#a855f7" strokeWidth="0.2" strokeOpacity="0.15" fill="#a855f7" fillOpacity="0.03" />
+      <text x="60" y="173" fill="#a855f7" fontSize="5" opacity="0.35">HANDS-ON TRAINING  •  SKILL BUILDING</text>
     </svg>
   ),
 };
@@ -280,7 +308,7 @@ export default function ServicesProductJourney({ setCurrentPage }) {
                     className={cn(
                       'w-full text-left flex items-start gap-3 sm:gap-4 py-3 sm:py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 cursor-pointer border',
                       isActive
-                        ? 'border-accent-cyan/20 bg-bg-secondary/70 shadow-[0_0_25px_rgba(6,182,212,0.06)]'
+                        ? 'border-accent-cyan/20 bg-bg-secondary/70 shadow-[0_0_25px_rgba(230,57,70,0.06)]'
                         : 'border-transparent hover:bg-bg-secondary/20 hover:border-border-color/40'
                     )}
                   >
@@ -312,7 +340,7 @@ export default function ServicesProductJourney({ setCurrentPage }) {
                     {isActive && (
                       <motion.div
                         layoutId="activeBar"
-                        className="w-0.5 rounded-full bg-accent-cyan shadow-[0_0_8px_rgba(6,182,212,0.4)] flex-shrink-0 self-stretch"
+                        className="w-0.5 rounded-full bg-accent-cyan shadow-[0_0_8px_rgba(230,57,70,0.22)] flex-shrink-0 self-stretch"
                       />
                     )}
                   </button>
@@ -345,7 +373,7 @@ export default function ServicesProductJourney({ setCurrentPage }) {
                         {isActive ? (
                           <motion.span
                             layoutId="navDot"
-                            className="block rounded-full bg-accent-cyan shadow-[0_0_14px_rgba(6,182,212,0.7)]"
+                            className="block rounded-full bg-accent-cyan shadow-[0_0_14px_rgba(230,57,70,0.22)]"
                             style={{ width: '11px', height: '11px' }}
                             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                           />

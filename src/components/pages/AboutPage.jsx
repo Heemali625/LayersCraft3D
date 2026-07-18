@@ -1,7 +1,6 @@
 import aboutImage from '../../assets/about_3d_printing.png';
 import { brandPillars, workflow } from '../../content/layerCraftContent';
 import CTASection from '../CTASection';
-import FAQSection from '../FAQSection';
 import Reveal from '../ui/Reveal';
 import { BentoPanel, EditorialBlock, PageHero, Timeline, VisualPlate } from './PagePrimitives';
 
@@ -65,7 +64,6 @@ export default function AboutPage({ setCurrentPage }) {
         <Timeline items={workflow} />
       </EditorialBlock>
 
-      <FAQSection title="Questions before we build together" />
       <CTASection setCurrentPage={setCurrentPage} />
     </div>
   );

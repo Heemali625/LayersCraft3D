@@ -39,7 +39,7 @@ export default function BlogsPage({ setCurrentPage }) {
                   onClick={() => setActiveFilter(filter)}
                   className={`rounded-lg px-4 py-2.5 text-sm font-bold transition-all cursor-pointer border ${
                     activeFilter === filter
-                      ? 'border-accent-cyan/50 bg-accent-cyan/10 text-accent-cyan shadow-[0_0_16px_rgba(6,182,212,0.1)]'
+                      ? 'border-accent-cyan/50 bg-accent-cyan/10 text-accent-cyan shadow-[0_0_16px_rgba(230,57,70,0.1)]'
                       : 'border-border-color bg-bg-secondary text-text-secondary hover:border-accent-cyan/30 hover:text-text-primary'
                   }`}
                 >

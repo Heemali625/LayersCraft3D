@@ -28,7 +28,7 @@ export default function Metrics() {
                 <div className="hidden md:block w-[1px] h-14 bg-gradient-to-b from-transparent via-border-color to-transparent shrink-0"></div>
               )}
               <div className="flex flex-col items-center hover:scale-105 transition-all duration-500 cursor-default flex-1 group">
-                <span className="font-heading text-5xl font-extrabold leading-none mb-2 bg-gradient-to-r from-white via-slate-100 to-cyan-400 bg-clip-text text-transparent tracking-tight group-hover:from-cyan-400 group-hover:to-purple-500 transition-all duration-300">
+                <span className="font-heading text-5xl font-extrabold leading-none mb-2 bg-gradient-to-r from-white via-slate-100 to-accent-soft bg-clip-text text-transparent tracking-tight group-hover:from-accent-soft group-hover:to-accent-cyan transition-all duration-300">
                   {item.val}
                 </span>
                 <span className="text-xs font-semibold text-text-secondary uppercase tracking-wider">

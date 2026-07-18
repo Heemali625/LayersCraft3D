@@ -67,7 +67,7 @@ export default function Workflow() {
                     {/* Top Row: Icon Circle and Glowing Number */}
                     <div className="flex items-center justify-between mb-8">
                       {/* Icon Container with Gradient Border Glow */}
-                      <div className={`w-12 h-12 rounded-xl bg-bg-primary border border-border-color text-accent-cyan flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 group-hover:border-accent-cyan/30 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-500`}>
+                      <div className={`w-12 h-12 rounded-xl bg-bg-primary border border-border-color text-accent-cyan flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 group-hover:border-accent-cyan/30 group-hover:shadow-[0_0_15px_rgba(230,57,70,0.15)] transition-all duration-500`}>
                         <IconComponent size={22} />
                       </div>
                       

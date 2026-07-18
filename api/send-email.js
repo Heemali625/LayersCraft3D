@@ -2,7 +2,7 @@
 // To switch to client email, just change the TO_EMAIL below
 // Deploy: vercel
 
-const TO_EMAIL = 'heemali.smirisys@gmail.com';
+const TO_EMAIL = 'print@layerscraft3d.com';
 const FROM_EMAIL = 'heemali.smirisys@gmail.com';
 
 export default async function handler(req, res) {
@@ -11,9 +11,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, phone, service, message } = req.body;
+    const { name, companyName, email, shippingAddress, billingAddress, gstNumber, phone, service, message } = req.body;
 
-    if (!name || !email || !phone || !service) {
+    if (!name || !companyName || !email || !shippingAddress || !billingAddress || !gstNumber || !phone || !service) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
@@ -50,12 +50,28 @@ export default async function handler(req, res) {
               <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #f8fafc; font-size: 14px;">${name}</td>
             </tr>
             <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #64748b; font-size: 12px; font-weight: 600;">Company Name</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #f8fafc; font-size: 14px;">${companyName}</td>
+            </tr>
+            <tr>
               <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #64748b; font-size: 12px; font-weight: 600;">Email</td>
               <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #06b6d4; font-size: 14px;"><a href="mailto:${email}" style="color: #06b6d4; text-decoration: none;">${email}</a></td>
             </tr>
             <tr>
               <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #64748b; font-size: 12px; font-weight: 600;">Phone</td>
               <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #f8fafc; font-size: 14px;">${phone}</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #64748b; font-size: 12px; font-weight: 600;">Shipping Address</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #f8fafc; font-size: 14px; white-space: pre-line;">${shippingAddress}</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #64748b; font-size: 12px; font-weight: 600;">Billing Address</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #f8fafc; font-size: 14px; white-space: pre-line;">${billingAddress}</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #64748b; font-size: 12px; font-weight: 600;">GST Number</td>
+              <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #f8fafc; font-size: 14px;">${gstNumber}</td>
             </tr>
             <tr>
               <td style="padding: 12px 16px; border-bottom: 1px solid #242838; color: #64748b; font-size: 12px; font-weight: 600;">Service</td>

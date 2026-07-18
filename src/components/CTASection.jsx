@@ -10,7 +10,7 @@ export default function CTASection({ setCurrentPage }) {
   return (
     <section className="relative py-24 px-6 bg-bg-primary z-10 overflow-hidden premium-section">
       <Reveal className="max-w-6xl mx-auto relative rounded-3xl p-12 md:p-20 overflow-hidden premium-card transition-all duration-700 group" direction="scale">
-        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.08),transparent_30%,rgba(6,182,212,0.08)_58%,rgba(245,158,11,0.08))] opacity-60 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.08),transparent_30%,rgba(230,57,70,0.08)_58%,rgba(245,158,11,0.08))] opacity-60 pointer-events-none"></div>
         <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"></div>
         
         <div className="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center">
@@ -25,10 +25,10 @@ export default function CTASection({ setCurrentPage }) {
           <div className="flex justify-center w-full">
             <button 
               onClick={handleCTA}
-              className="cta-button relative px-8 py-4 rounded-xl text-base font-bold text-white select-none cursor-pointer bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_35px_rgba(6,182,212,0.65)] hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300"
+              className="cta-button relative px-8 py-4 rounded-xl text-base font-bold text-white select-none cursor-pointer bg-gradient-to-r from-accent-dark via-accent-blue to-accent-cyan shadow-[0_0_20px_rgba(230,57,70,0.22)] hover:shadow-[0_0_35px_rgba(230,57,70,0.35)] hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300"
             >
               <span className="flex items-center gap-2.5">
-                Let's Connect Today
+                Connect With Us
                 <ArrowRight size={18} />
               </span>
             </button>

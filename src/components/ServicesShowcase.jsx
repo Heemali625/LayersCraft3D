@@ -84,34 +84,34 @@ const ILLUSTRATIONS = {
     <svg viewBox="0 0 200 160" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.25" />
-          <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.08" />
+          <stop offset="0%" stopColor="#E63946" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="#C1121F" stopOpacity="0.08" />
         </linearGradient>
       </defs>
-      <rect x="40" y="20" width="120" height="120" rx="12" fill="url(#g1)" stroke="#06b6d4" strokeWidth="0.5" strokeOpacity="0.3" />
-      <path d="M70 80 L90 55 L110 80 L100 82 L90 70 L80 82 Z" fill="#06b6d4" fillOpacity="0.5" />
-      <circle cx="100" cy="65" r="6" fill="#06b6d4" fillOpacity="0.3" />
-      <path d="M55 95 Q75 85 100 95 Q125 105 145 95" stroke="#06b6d4" strokeWidth="1" strokeOpacity="0.3" fill="none" />
-      <rect x="60" y="100" width="80" height="2" rx="1" fill="#3b82f6" fillOpacity="0.15" />
-      <rect x="65" y="106" width="70" height="2" rx="1" fill="#3b82f6" fillOpacity="0.1" />
+      <rect x="40" y="20" width="120" height="120" rx="12" fill="url(#g1)" stroke="#E63946" strokeWidth="0.5" strokeOpacity="0.3" />
+      <path d="M70 80 L90 55 L110 80 L100 82 L90 70 L80 82 Z" fill="#E63946" fillOpacity="0.5" />
+      <circle cx="100" cy="65" r="6" fill="#E63946" fillOpacity="0.3" />
+      <path d="M55 95 Q75 85 100 95 Q125 105 145 95" stroke="#E63946" strokeWidth="1" strokeOpacity="0.3" fill="none" />
+      <rect x="60" y="100" width="80" height="2" rx="1" fill="#C1121F" fillOpacity="0.15" />
+      <rect x="65" y="106" width="70" height="2" rx="1" fill="#C1121F" fillOpacity="0.1" />
     </svg>
   ),
   'Capture': (
     <svg viewBox="0 0 200 160" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.25" />
+          <stop offset="0%" stopColor="#C1121F" stopOpacity="0.25" />
           <stop offset="100%" stopColor="#a855f7" stopOpacity="0.08" />
         </linearGradient>
       </defs>
-      <rect x="40" y="20" width="120" height="120" rx="12" fill="url(#g2)" stroke="#3b82f6" strokeWidth="0.5" strokeOpacity="0.3" />
-      <circle cx="100" cy="70" r="28" stroke="#3b82f6" strokeWidth="0.8" strokeOpacity="0.4" fill="#3b82f6" fillOpacity="0.05" />
-      <circle cx="100" cy="70" r="18" stroke="#3b82f6" strokeWidth="0.6" strokeOpacity="0.3" fill="#3b82f6" fillOpacity="0.05" />
-      <circle cx="100" cy="70" r="8" fill="#3b82f6" fillOpacity="0.15" />
-      <line x1="100" y1="98" x2="100" y2="112" stroke="#3b82f6" strokeWidth="0.8" strokeOpacity="0.3" />
-      <line x1="72" y1="70" x2="58" y2="70" stroke="#3b82f6" strokeWidth="0.8" strokeOpacity="0.3" />
-      <line x1="128" y1="70" x2="142" y2="70" stroke="#3b82f6" strokeWidth="0.8" strokeOpacity="0.3" />
-      <line x1="100" y1="42" x2="100" y2="28" stroke="#3b82f6" strokeWidth="0.8" strokeOpacity="0.3" />
+      <rect x="40" y="20" width="120" height="120" rx="12" fill="url(#g2)" stroke="#C1121F" strokeWidth="0.5" strokeOpacity="0.3" />
+      <circle cx="100" cy="70" r="28" stroke="#C1121F" strokeWidth="0.8" strokeOpacity="0.4" fill="#C1121F" fillOpacity="0.05" />
+      <circle cx="100" cy="70" r="18" stroke="#C1121F" strokeWidth="0.6" strokeOpacity="0.3" fill="#C1121F" fillOpacity="0.05" />
+      <circle cx="100" cy="70" r="8" fill="#C1121F" fillOpacity="0.15" />
+      <line x1="100" y1="98" x2="100" y2="112" stroke="#C1121F" strokeWidth="0.8" strokeOpacity="0.3" />
+      <line x1="72" y1="70" x2="58" y2="70" stroke="#C1121F" strokeWidth="0.8" strokeOpacity="0.3" />
+      <line x1="128" y1="70" x2="142" y2="70" stroke="#C1121F" strokeWidth="0.8" strokeOpacity="0.3" />
+      <line x1="100" y1="42" x2="100" y2="28" stroke="#C1121F" strokeWidth="0.8" strokeOpacity="0.3" />
       <path d="M60 120 Q80 110 100 120 Q120 130 140 120" stroke="#a855f7" strokeWidth="0.8" strokeOpacity="0.25" fill="none" />
     </svg>
   ),
@@ -158,14 +158,14 @@ const ILLUSTRATIONS = {
       <defs>
         <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#10b981" stopOpacity="0.25" />
-          <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.08" />
+          <stop offset="100%" stopColor="#E63946" stopOpacity="0.08" />
         </linearGradient>
       </defs>
       <rect x="40" y="20" width="120" height="120" rx="12" fill="url(#g5)" stroke="#10b981" strokeWidth="0.5" strokeOpacity="0.3" />
       <rect x="55" y="35" width="90" height="70" rx="6" stroke="#10b981" strokeWidth="0.7" strokeOpacity="0.3" fill="#10b981" fillOpacity="0.04" />
       <polygon points="55,105 145,105 130,118 70,118" fill="#10b981" fillOpacity="0.06" stroke="#10b981" strokeWidth="0.3" strokeOpacity="0.15" />
-      <circle cx="100" cy="70" r="18" stroke="#06b6d4" strokeWidth="0.6" strokeOpacity="0.25" fill="#06b6d4" fillOpacity="0.04" />
-      <path d="M88 68 L96 74 L112 62" stroke="#06b6d4" strokeWidth="1.2" strokeOpacity="0.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="100" cy="70" r="18" stroke="#E63946" strokeWidth="0.6" strokeOpacity="0.25" fill="#E63946" fillOpacity="0.04" />
+      <path d="M88 68 L96 74 L112 62" stroke="#E63946" strokeWidth="1.2" strokeOpacity="0.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
       <rect x="62" y="125" width="76" height="1.5" rx="1" fill="#10b981" fillOpacity="0.12" />
       <rect x="70" y="130" width="60" height="1.5" rx="1" fill="#10b981" fillOpacity="0.08" />
     </svg>
@@ -174,18 +174,18 @@ const ILLUSTRATIONS = {
     <svg viewBox="0 0 200 160" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="g6" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.25" />
+          <stop offset="0%" stopColor="#E63946" stopOpacity="0.25" />
           <stop offset="100%" stopColor="#a855f7" stopOpacity="0.08" />
         </linearGradient>
       </defs>
-      <rect x="40" y="20" width="120" height="120" rx="12" fill="url(#g6)" stroke="#06b6d4" strokeWidth="0.5" strokeOpacity="0.3" />
-      <rect x="58" y="40" width="84" height="80" rx="3" stroke="#06b6d4" strokeWidth="0.6" strokeOpacity="0.25" fill="#06b6d4" fillOpacity="0.04" />
+      <rect x="40" y="20" width="120" height="120" rx="12" fill="url(#g6)" stroke="#E63946" strokeWidth="0.5" strokeOpacity="0.3" />
+      <rect x="58" y="40" width="84" height="80" rx="3" stroke="#E63946" strokeWidth="0.6" strokeOpacity="0.25" fill="#E63946" fillOpacity="0.04" />
       <circle cx="100" cy="80" r="22" stroke="#a855f7" strokeWidth="0.7" strokeOpacity="0.3" fill="#a855f7" fillOpacity="0.04" />
-      <circle cx="100" cy="80" r="12" stroke="#06b6d4" strokeWidth="0.5" strokeOpacity="0.2" fill="#06b6d4" fillOpacity="0.04" />
+      <circle cx="100" cy="80" r="12" stroke="#E63946" strokeWidth="0.5" strokeOpacity="0.2" fill="#E63946" fillOpacity="0.04" />
       <circle cx="100" cy="80" r="4" fill="#a855f7" fillOpacity="0.15" />
-      <line x1="58" y1="95" x2="142" y2="95" stroke="#06b6d4" strokeWidth="0.4" strokeOpacity="0.12" />
+      <line x1="58" y1="95" x2="142" y2="95" stroke="#E63946" strokeWidth="0.4" strokeOpacity="0.12" />
       <line x1="58" y1="100" x2="142" y2="100" stroke="#a855f7" strokeWidth="0.4" strokeOpacity="0.12" />
-      <rect x="80" y="120" width="40" height="2" rx="1" fill="#06b6d4" fillOpacity="0.12" />
+      <rect x="80" y="120" width="40" height="2" rx="1" fill="#E63946" fillOpacity="0.12" />
     </svg>
   ),
 };

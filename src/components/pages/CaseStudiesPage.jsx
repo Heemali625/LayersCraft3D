@@ -35,7 +35,7 @@ export default function CaseStudiesPage({ setCurrentPage }) {
               </Reveal>
               <Reveal direction={idx % 2 ? 'left' : 'right'} delay={0.1} className="lg:col-span-7">
                 <div className="relative min-h-[520px] rounded-3xl overflow-hidden premium-card">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(6,182,212,0.18),transparent_32%),radial-gradient(circle_at_78%_74%,rgba(245,158,11,0.14),transparent_34%)]"></div>
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(230,57,70,0.18),transparent_32%),radial-gradient(circle_at_78%_74%,rgba(245,158,11,0.14),transparent_34%)]"></div>
                   <div className="absolute inset-0 bg-grid-overlay opacity-50"></div>
                   <div className="relative z-10 h-full grid grid-cols-1 sm:grid-cols-2 gap-5 p-6 sm:p-8 content-end">
                     <BentoPanel className="bg-black/20 backdrop-blur-md">

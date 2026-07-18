@@ -28,7 +28,7 @@ export default function ContactUsPage({ setCurrentPage }) {
       <section className="relative py-20 px-6 premium-section overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-5">
           {[
-            { label: 'Email Support', value: 'print@layerscarft3d.com', icon: Mail },
+            { label: 'Email Support', value: 'print@layerscraft3d.com', icon: Mail },
             { label: 'Phone Support', value: '+91 8247606508', icon: Phone },
             { label: 'Business Address', value: 'Hyderabad, Telangana, India', icon: MapPin },
             { label: 'Turnaround Details', value: 'Design review quotes provided within 24 hours.', icon: Clock },

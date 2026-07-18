@@ -156,7 +156,7 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={18} className="text-accent-cyan flex-shrink-0 mt-0.5" />
-                <a href="mailto:print@layerscarft3d.com" className="hover:text-accent-cyan transition-colors">print@layerscarft3d.com</a>
+                <a href="mailto:print@layerscraft3d.com" className="hover:text-accent-cyan transition-colors">print@layerscraft3d.com</a>
               </li>
             </ul>
           </div>

@@ -64,7 +64,7 @@ export function Timeline({ items }) {
           const Icon = item.icon;
           return (
             <Reveal key={item.title} delay={idx * 0.08} className="relative pl-16">
-              <div className="absolute left-0 top-0 w-10 h-10 rounded-xl bg-bg-secondary border border-accent-cyan/25 text-accent-cyan flex items-center justify-center shadow-[0_0_24px_rgba(6,182,212,0.12)]">
+              <div className="absolute left-0 top-0 w-10 h-10 rounded-xl bg-bg-secondary border border-accent-cyan/25 text-accent-cyan flex items-center justify-center shadow-[0_0_24px_rgba(230,57,70,0.12)]">
                 <Icon size={18} />
               </div>
               <span className="text-xs font-extrabold text-accent-cyan tracking-[0.16em] uppercase">{item.num}</span>
@@ -85,7 +85,7 @@ export function VisualPlate({ label, title, children }) {
       transition={{ duration: 0.35 }}
       className="visual-plate relative min-h-[360px] rounded-3xl overflow-hidden premium-card flex items-end"
     >
-      <div className="visual-plate-backdrop absolute inset-0 bg-[radial-gradient(circle_at_35%_25%,rgba(6,182,212,0.18),transparent_36%),radial-gradient(circle_at_80%_70%,rgba(245,158,11,0.12),transparent_38%)]"></div>
+      <div className="visual-plate-backdrop absolute inset-0 bg-[radial-gradient(circle_at_35%_25%,rgba(230,57,70,0.18),transparent_36%),radial-gradient(circle_at_80%_70%,rgba(245,158,11,0.12),transparent_38%)]"></div>
       <div className="visual-plate-grid absolute inset-0 bg-grid-overlay opacity-50"></div>
       {children}
       <div className="relative z-10 p-7">

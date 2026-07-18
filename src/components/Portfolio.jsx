@@ -155,7 +155,7 @@ export default function Portfolio() {
                   )}
                 >
                   {/* Card Container */}
-                  <div className="relative h-[420px] sm:h-[480px] md:h-[520px] rounded-3xl overflow-hidden border border-border-color hover:border-accent-cyan/30 bg-bg-secondary shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_26px_70px_rgba(6,182,212,0.12)] flex flex-col justify-end group transition-all duration-700">
+                  <div className="relative h-[420px] sm:h-[480px] md:h-[520px] rounded-3xl overflow-hidden border border-border-color hover:border-accent-cyan/30 bg-bg-secondary shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_26px_70px_rgba(230,57,70,0.12)] flex flex-col justify-end group transition-all duration-700">
                     
                     {/* Background Image */}
                     <img 

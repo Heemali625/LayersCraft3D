@@ -30,14 +30,22 @@ const FAQS = [
 export default function ContactPage({ selectedService = '' }) {
   const [formData, setFormData] = useState({
     name: '',
+    companyName: '',
     email: '',
+    shippingAddress: '',
+    billingAddress: '',
+    gstNumber: '',
     phone: '',
     service: selectedService || ''
   });
 
   const [focusedField, setFocusedField] = useState({
     name: false,
+    companyName: false,
     email: false,
+    shippingAddress: false,
+    billingAddress: false,
+    gstNumber: false,
     phone: false
   });
 
@@ -110,7 +118,7 @@ export default function ContactPage({ selectedService = '' }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError('');
-    if (!formData.name || !formData.email || !formData.phone || !formData.service) {
+    if (!formData.name || !formData.companyName || !formData.email || !formData.shippingAddress || !formData.billingAddress || !formData.gstNumber || !formData.phone || !formData.service) {
       alert("Please fill in all the required fields.");
       return;
     }
@@ -128,9 +136,9 @@ export default function ContactPage({ selectedService = '' }) {
       }
       
       setTimeout(() => {
-        setFormData({ name: '', email: '', phone: '', service: '' });
+        setFormData({ name: '', companyName: '', email: '', shippingAddress: '', billingAddress: '', gstNumber: '', phone: '', service: '' });
         setUploadedFile(null);
-        setFocusedField({ name: false, email: false, phone: false });
+        setFocusedField({ name: false, companyName: false, email: false, shippingAddress: false, billingAddress: false, gstNumber: false, phone: false });
         setFormSubmitted(false);
         alert("Thank you! Your quote request has been received. Our team will contact you shortly.");
       }, 1500);
@@ -169,7 +177,7 @@ export default function ContactPage({ selectedService = '' }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-bg-secondary border border-border-color hover:border-accent-cyan/20 rounded-2xl p-8 sm:p-12 shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_40px_rgba(6,182,212,0.03)] text-left transition-all duration-300"
+            className="bg-bg-secondary border border-border-color hover:border-accent-cyan/20 rounded-2xl p-8 sm:p-12 shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_40px_rgba(230,57,70,0.03)] text-left transition-all duration-300"
           >
             <h2 className="font-heading text-2xl font-bold text-text-primary mb-1">Request a Quote</h2>
             <p className="text-sm text-text-secondary mb-8">Fill out the details below, and we will get back to you with pricing options.</p>
@@ -219,6 +227,70 @@ export default function ContactPage({ selectedService = '' }) {
                 />
               </div>
 
+              {/* Company Name */}
+              <div className={`relative border-b border-border-color pt-4 transition-all duration-300 ${
+                focusedField.companyName || formData.companyName ? 'border-accent-cyan' : ''
+              }`}>
+                <label className={`absolute left-0 font-sans transition-all duration-300 pointer-events-none ${
+                  focusedField.companyName || formData.companyName ? 'top-[-0.25rem] text-xs text-accent-cyan' : 'top-5 text-sm text-text-muted hover:text-text-secondary'
+                }`}>
+                  Company Name *
+                </label>
+                <input
+                  type="text"
+                  className="w-full bg-transparent border-none outline-none text-text-primary font-sans text-base py-2.5"
+                  value={formData.companyName}
+                  onChange={(e) => handleInputChange('companyName', e.target.value)}
+                  onFocus={() => handleFocus('companyName')}
+                  onBlur={(e) => handleBlur('companyName', e.target.value)}
+                  required
+                />
+              </div>
+
+              {/* Shipping Address */}
+              <div className="flex flex-col gap-2">
+                <label className="text-xs font-semibold text-text-secondary" htmlFor="shipping-address">Shipping Address *</label>
+                <textarea
+                  id="shipping-address"
+                  className="w-full min-h-24 resize-y bg-bg-primary border border-border-color rounded-lg text-text-primary font-sans text-sm px-4 py-3 outline-none focus:border-accent-cyan transition-colors duration-300"
+                  value={formData.shippingAddress}
+                  onChange={(e) => handleInputChange('shippingAddress', e.target.value)}
+                  required
+                />
+              </div>
+
+              {/* Billing Address */}
+              <div className="flex flex-col gap-2">
+                <label className="text-xs font-semibold text-text-secondary" htmlFor="billing-address">Billing Address *</label>
+                <textarea
+                  id="billing-address"
+                  className="w-full min-h-24 resize-y bg-bg-primary border border-border-color rounded-lg text-text-primary font-sans text-sm px-4 py-3 outline-none focus:border-accent-cyan transition-colors duration-300"
+                  value={formData.billingAddress}
+                  onChange={(e) => handleInputChange('billingAddress', e.target.value)}
+                  required
+                />
+              </div>
+
+              {/* GST Number */}
+              <div className={`relative border-b border-border-color pt-4 transition-all duration-300 ${
+                focusedField.gstNumber || formData.gstNumber ? 'border-accent-cyan' : ''
+              }`}>
+                <label className={`absolute left-0 font-sans transition-all duration-300 pointer-events-none ${
+                  focusedField.gstNumber || formData.gstNumber ? 'top-[-0.25rem] text-xs text-accent-cyan' : 'top-5 text-sm text-text-muted hover:text-text-secondary'
+                }`}>
+                  GST Number *
+                </label>
+                <input
+                  type="text"
+                  className="w-full bg-transparent border-none outline-none text-text-primary font-sans text-base py-2.5"
+                  value={formData.gstNumber}
+                  onChange={(e) => handleInputChange('gstNumber', e.target.value)}
+                  onFocus={() => handleFocus('gstNumber')}
+                  onBlur={(e) => handleBlur('gstNumber', e.target.value)}
+                  required
+                />
+              </div>
+
               {/* Phone Number */}
               <div className={`relative border-b border-border-color pt-4 transition-all duration-300 ${
                 focusedField.phone || formData.phone ? 'border-accent-cyan' : ''
@@ -228,7 +300,7 @@ export default function ContactPage({ selectedService = '' }) {
                     ? 'top-[-0.25rem] text-xs text-accent-cyan' 
                     : 'top-5 text-sm text-text-muted hover:text-text-secondary'
                 }`}>
-                  Phone Number *
+                  Contact Number *
                 </label>
                 <input 
                   type="tel" 
@@ -325,15 +397,15 @@ export default function ContactPage({ selectedService = '' }) {
               <h3 className="font-heading text-lg font-bold text-text-primary mb-5 tracking-wide">Direct Connection</h3>
               
               <div className="flex flex-col gap-4">
-                <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(6,182,212,0.02)] transition-all duration-300">
+                <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(230,57,70,0.02)] transition-all duration-300">
                   <Mail className="text-accent-cyan mt-0.5 flex-shrink-0" size={20} />
                   <div className="flex flex-col gap-0.5">
                     <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Email Support</span>
-                    <a href="mailto:support@domain.com" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">support@domain.com</a>
+                    <a href="mailto:print@layerscraft3d.com" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">print@layerscraft3d.com</a>
                   </div>
                 </div>
 
-                <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(6,182,212,0.02)] transition-all duration-300">
+                <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(230,57,70,0.02)] transition-all duration-300">
                   <MapPin className="text-accent-cyan mt-0.5 flex-shrink-0" size={20} />
                   <div className="flex flex-col gap-0.5">
                     <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Business Address</span>
@@ -341,7 +413,7 @@ export default function ContactPage({ selectedService = '' }) {
                   </div>
                 </div>
 
-                <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(6,182,212,0.02)] transition-all duration-300">
+                <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(230,57,70,0.02)] transition-all duration-300">
                   <Clock className="text-accent-cyan mt-0.5 flex-shrink-0" size={20} />
                   <div className="flex flex-col gap-0.5">
                     <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Turnaround Details</span>

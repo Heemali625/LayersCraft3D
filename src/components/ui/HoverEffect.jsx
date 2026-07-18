@@ -31,7 +31,7 @@ export const HoverEffect = ({
             <AnimatePresence>
               {hoveredIndex === idx && (
                 <motion.span
-                  className="absolute inset-0 h-full w-full bg-cyan-500/10 block rounded-2xl border border-cyan-500/20"
+                  className="absolute inset-0 h-full w-full bg-accent-cyan/10 block rounded-2xl border border-accent-cyan/20"
                   layoutId="hoverBackground"
                   initial={{ opacity: 0 }}
                   animate={{
@@ -47,7 +47,7 @@ export const HoverEffect = ({
             </AnimatePresence>
               <Card className="premium-card">
               <div className="flex items-center justify-center mb-2">
-                <div className="h-11 w-11 rounded-lg bg-bg-primary border border-border-color flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 transition-all duration-300">
+                <div className="h-11 w-11 rounded-lg bg-bg-primary border border-border-color flex items-center justify-center text-accent-cyan group-hover:bg-accent-cyan/10 group-hover:border-accent-cyan/30 transition-all duration-300">
                   <IconComponent size={22} />
                 </div>
               </div>
@@ -57,7 +57,7 @@ export const HoverEffect = ({
                 <div className="mt-4 pt-2">
                   <button 
                     onClick={item.linkAction} 
-                    className="flex items-center gap-1.5 text-xs font-semibold text-text-secondary group-hover:text-cyan-400 transition-colors cursor-pointer"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-text-secondary group-hover:text-accent-cyan transition-colors cursor-pointer"
                   >
                     <span>Request Quote</span>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transform group-hover:translate-x-1 transition-transform">

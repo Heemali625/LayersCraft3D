@@ -1,32 +1,31 @@
 import Reveal from './ui/Reveal';
 import { 
-  Rocket, Car, Dna,
-  Flame, Gem, Activity, Gauge, Cpu, 
-  Briefcase, Truck, Fan, ShieldAlert 
+  Rocket, Wrench, Car, Building, Dna,
+  Film, Sparkles, Gem
 } from 'lucide-react';
 
 const INDUSTRIES_DATA = [
   { name: "Aerospace & Defense", icon: Rocket },
+  { name: "Manufacturing", icon: Wrench },
   { name: "Automotive", icon: Car },
+  { name: "Architecture", icon: Building },
   { name: "Bioprinting", icon: Dna },
+  { name: "Movies", icon: Film },
   { 
-    name: "Dental", 
+    name: "Action Figures", 
     icon: () => (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2C8 2 7 5 7 8s2 6 2 8c0 3-2 4-2 4h10s-2-1-2-4c0-2 2-5 2-8s-1-6-5-6Z" />
-        <path d="M12 2v6" />
+        <circle cx="12" cy="6" r="2" />
+        <path d="M12 8v6" />
+        <path d="M9 11h6" />
+        <path d="M8 16l-2 4" />
+        <path d="M16 16l2 4" />
+        <path d="M9 14l-1 6" />
+        <path d="M15 14l1 6" />
       </svg>
     ) 
   },
-  { name: "Foundries", icon: Flame },
-  { name: "Jewelry", icon: Gem },
-  { name: "Medical", icon: Activity },
-  { name: "Motorsports", icon: Gauge },
-  { name: "Semiconductor", icon: Cpu },
-  { name: "Service Bureaus", icon: Briefcase },
-  { name: "Truck, Bus & Rail", icon: Truck },
-  { name: "Turbomachinery", icon: Fan },
-  { name: "Defense Systems", icon: ShieldAlert }
+  { name: "Jewellery & Fashion", icon: Gem }
 ];
 
 export default function Industries() {

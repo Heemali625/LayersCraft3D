@@ -72,7 +72,7 @@ export const StickyScroll = ({
             className={cn(
               "w-1.5 rounded-full transition-all duration-500 cursor-pointer focus:outline-none",
               activeCard === idx 
-                ? "bg-accent-cyan h-9 shadow-[0_0_12px_rgba(6,182,212,0.8)]" 
+                ? "bg-accent-cyan h-9 shadow-[0_0_12px_rgba(230,57,70,0.22)]"
                 : "bg-text-muted/30 h-2 hover:bg-text-secondary/60"
             )}
             aria-label={`Go to slide ${idx + 1}`}
@@ -125,7 +125,7 @@ export const StickyScroll = ({
       >
         <div className="w-full max-w-sm lg:max-w-md aspect-square rounded-2xl bg-bg-secondary border border-border-color overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative flex items-center justify-center">
           {/* Subtle background glow overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.06),transparent_70%)] pointer-events-none z-0"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(230,57,70,0.06),transparent_70%)] pointer-events-none z-0"></div>
 
           <AnimatePresence>
             <motion.div

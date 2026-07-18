@@ -68,7 +68,7 @@ export default function Hero({ setCurrentPage }) {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -18 }}
                 transition={{ duration: 0.45, ease: 'easeOut' }}
-                className="w-full h-full object-cover rounded-[23px] block mix-blend-screen drop-shadow-[0_28px_65px_rgba(6,182,212,0.18)]"
+                className="w-full h-full object-cover rounded-[23px] block mix-blend-screen drop-shadow-[0_28px_65px_rgba(230,57,70,0.18)]"
               />
             </AnimatePresence>
             {/* Visual Backlight Glow */}
