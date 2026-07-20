@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Clock, Upload, Check, ChevronDown, Trash2 } from 'lucide-react';
+import { Mail, MapPin, Phone, Clock, Upload, Check, ChevronDown, Trash2 } from 'lucide-react';
 
 const SERVICES = [
   "Rapid Prototyping",
@@ -14,16 +14,24 @@ const SERVICES = [
 
 const FAQS = [
   {
-    q: "Do you provide 3D printing services near me?",
-    a: "Yes, we offer both local and online 3D printing services across India. We deliver high-quality parts right to your doorstep."
+    q: "Can you help if I only have an idea?",
+    a: "Absolutely. Share your idea, sketch, or reference, and we are here to turn it into a workable 3D solution."
   },
   {
-    q: "What software do you use?",
-    a: "We use advanced, industry-standard 3D modeling and slicing software such as Fusion 360, SolidWorks, and Cura to prepare and print your designs with precision."
+    q: "What file formats can I upload?",
+    a: "You can upload STL, STEP, IGES, OBJ, SolidWorks files, and most standard 3D CAD formats."
   },
   {
-    q: "Can you help with design?",
-    a: "Yes, we provide professional 3D modeling and sculpting services across India. If you share your ideas or sketches, our design team can build ready-to-print 3D models."
+    q: "Do you provide material recommendations?",
+    a: "Yes. We help you in choosing the right material based on your application, performance needs, and budget."
+  },
+  {
+    q: "Will my design remain confidential?",
+    a: "Yes, for sure we keep your designs and project details completely confidential and secure."
+  },
+  {
+    q: "How quickly will I receive my quotation?",
+    a: "We usually review your request and share your quotation within 24 business hours."
   }
 ];
 
@@ -160,11 +168,8 @@ export default function ContactPage({ selectedService = '' }) {
             Quick Quote
           </span>
           <h1 className="font-heading text-4xl sm:text-[3.5rem] font-bold text-text-primary leading-tight mb-4 text-gradient">
-            Get a LayerCraft3D Quote
+            Get Your Quote
           </h1>
-          <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-            Upload your model, choose the service, and share the details our team needs to price your next 3D printing, design, scanning, or machining project.
-          </p>
         </div>
       </section>
 
@@ -177,10 +182,10 @@ export default function ContactPage({ selectedService = '' }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-bg-secondary border border-border-color hover:border-accent-cyan/20 rounded-2xl p-8 sm:p-12 shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_40px_rgba(230,57,70,0.03)] text-left transition-all duration-300"
+            className="quote-form bg-bg-secondary border border-border-color hover:border-accent-cyan/20 rounded-2xl p-8 sm:p-12 shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_40px_rgba(230,57,70,0.03)] text-left transition-all duration-300"
           >
-            <h2 className="font-heading text-2xl font-bold text-text-primary mb-1">Request a Quote</h2>
-            <p className="text-sm text-text-secondary mb-8">Fill out the details below, and we will get back to you with pricing options.</p>
+            <h2 className="font-heading text-2xl font-bold text-text-primary mb-1">Share Your Details</h2>
+            <p className="text-sm text-text-secondary mb-8">We'll review and get back to you with the right solution and pricing.</p>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-7">
               {/* Full Name */}
@@ -248,25 +253,37 @@ export default function ContactPage({ selectedService = '' }) {
               </div>
 
               {/* Shipping Address */}
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-semibold text-text-secondary" htmlFor="shipping-address">Shipping Address *</label>
+              <div className={`relative border-b border-border-color pt-4 transition-all duration-300 ${
+                focusedField.shippingAddress || formData.shippingAddress ? 'border-accent-cyan' : ''
+              }`}>
+                <label className={`absolute left-0 font-sans transition-all duration-300 pointer-events-none ${
+                  focusedField.shippingAddress || formData.shippingAddress ? 'top-[-0.25rem] text-xs text-accent-cyan' : 'top-5 text-sm text-text-muted hover:text-text-secondary'
+                }`} htmlFor="shipping-address">Shipping Address *</label>
                 <textarea
                   id="shipping-address"
-                  className="w-full min-h-24 resize-y bg-bg-primary border border-border-color rounded-lg text-text-primary font-sans text-sm px-4 py-3 outline-none focus:border-accent-cyan transition-colors duration-300"
+                  className="w-full min-h-20 resize-y bg-transparent border-none outline-none text-text-primary font-sans text-base py-2.5"
                   value={formData.shippingAddress}
                   onChange={(e) => handleInputChange('shippingAddress', e.target.value)}
+                  onFocus={() => handleFocus('shippingAddress')}
+                  onBlur={(e) => handleBlur('shippingAddress', e.target.value)}
                   required
                 />
               </div>
 
               {/* Billing Address */}
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-semibold text-text-secondary" htmlFor="billing-address">Billing Address *</label>
+              <div className={`relative border-b border-border-color pt-4 transition-all duration-300 ${
+                focusedField.billingAddress || formData.billingAddress ? 'border-accent-cyan' : ''
+              }`}>
+                <label className={`absolute left-0 font-sans transition-all duration-300 pointer-events-none ${
+                  focusedField.billingAddress || formData.billingAddress ? 'top-[-0.25rem] text-xs text-accent-cyan' : 'top-5 text-sm text-text-muted hover:text-text-secondary'
+                }`} htmlFor="billing-address">Billing Address *</label>
                 <textarea
                   id="billing-address"
-                  className="w-full min-h-24 resize-y bg-bg-primary border border-border-color rounded-lg text-text-primary font-sans text-sm px-4 py-3 outline-none focus:border-accent-cyan transition-colors duration-300"
+                  className="w-full min-h-20 resize-y bg-transparent border-none outline-none text-text-primary font-sans text-base py-2.5"
                   value={formData.billingAddress}
                   onChange={(e) => handleInputChange('billingAddress', e.target.value)}
+                  onFocus={() => handleFocus('billingAddress')}
+                  onBlur={(e) => handleBlur('billingAddress', e.target.value)}
                   required
                 />
               </div>
@@ -314,18 +331,18 @@ export default function ContactPage({ selectedService = '' }) {
               </div>
 
               {/* Service Required */}
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-semibold text-text-secondary">Service Required *</label>
+              <div className="relative border-b border-border-color pt-4 transition-all duration-300">
+                <label className="absolute left-0 top-[-0.25rem] text-xs text-text-muted font-sans pointer-events-none">Service Required *</label>
                 <div className="relative w-full">
                   <select 
-                    className="w-full bg-bg-primary border border-border-color rounded-lg text-text-primary font-sans text-sm px-4 py-3 outline-none appearance-none cursor-pointer focus:border-accent-cyan transition-colors duration-300"
+                    className="w-full h-11 bg-transparent border-none outline-none appearance-none cursor-pointer text-text-primary font-sans text-base py-2.5"
                     value={formData.service}
                     onChange={(e) => handleInputChange('service', e.target.value)}
                     required
                   >
-                    <option value="" disabled className="bg-bg-secondary text-text-secondary">Select a core service...</option>
+                    <option value="" disabled>Select a core service...</option>
                     {SERVICES.map((srv, idx) => (
-                      <option key={idx} value={srv} className="bg-bg-secondary text-text-primary">{srv}</option>
+                      <option key={idx} value={srv}>{srv}</option>
                     ))}
                   </select>
                   <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none" size={16} />
@@ -333,10 +350,10 @@ export default function ContactPage({ selectedService = '' }) {
               </div>
 
               {/* File Dropzone */}
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-semibold text-text-secondary">Attach 3D Designs (Optional)</label>
+              <div className="relative border-b border-border-color pt-4 transition-all duration-300">
+                <label className="absolute left-0 top-[-0.25rem] text-xs text-text-muted font-sans pointer-events-none">Attach 3D Designs (Optional)</label>
                 <div 
-                  className={`border-[1.5px] border-dashed border-border-color rounded-xl bg-bg-primary/10 p-8 text-center cursor-pointer relative hover:border-accent-cyan hover:bg-accent-cyan/[0.015] transition-all duration-300 ${
+                  className={`border-0 bg-transparent p-4 text-center cursor-pointer relative transition-all duration-300 ${
                     isDragActive ? 'border-accent-cyan bg-accent-cyan/[0.015]' : ''
                   }`}
                   onDragEnter={handleDrag}
@@ -394,22 +411,30 @@ export default function ContactPage({ selectedService = '' }) {
             
             {/* Info Cards */}
             <div>
-              <h3 className="font-heading text-lg font-bold text-text-primary mb-5 tracking-wide">Direct Connection</h3>
+              <h3 className="font-heading text-lg font-bold text-text-primary mb-5 tracking-wide">Reach Us</h3>
               
               <div className="flex flex-col gap-4">
                 <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(230,57,70,0.02)] transition-all duration-300">
                   <Mail className="text-accent-cyan mt-0.5 flex-shrink-0" size={20} />
                   <div className="flex flex-col gap-0.5">
                     <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Email Support</span>
-                    <a href="mailto:print@layerscraft3d.com" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">print@layerscraft3d.com</a>
+                    <a href="mailto:print@layerscarft3d.com" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">print@layerscarft3d.com</a>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(230,57,70,0.02)] transition-all duration-300">
+                  <Phone className="text-accent-cyan mt-0.5 flex-shrink-0" size={20} />
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Phone No</span>
+                    <a href="tel:+918247606508" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">+91 8247606508</a>
                   </div>
                 </div>
 
                 <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(230,57,70,0.02)] transition-all duration-300">
                   <MapPin className="text-accent-cyan mt-0.5 flex-shrink-0" size={20} />
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Business Address</span>
-                    <span className="text-sm text-text-primary">Hyderabad, Telangana, India</span>
+                    <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Office Address</span>
+                    <a href="https://maps.app.goo.gl/HidNNuHFzNKbs2vE9" target="_blank" rel="noreferrer" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">F9QF+V2C, Srila Park Pride Rd, Hafeezpet, Hyderabad, Telangana 500049</a>
                   </div>
                 </div>
 

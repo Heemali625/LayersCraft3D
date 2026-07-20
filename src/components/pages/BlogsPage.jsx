@@ -7,7 +7,17 @@ import rapidPrototypingCover from '../../assets/blog/rapid-prototyping-cover.png
 import scanToCncCover from '../../assets/blog/scan-to-cnc-cover.png';
 import quotePreparationCover from '../../assets/blog/quote-preparation-cover.png';
 
-const FILTERS = ['All', 'Product Development', 'Manufacturing Guide', 'Quick Quote'];
+const FILTERS = [
+  'All',
+  'Rapid Prototyping',
+  'Custom 3D Printing',
+  'Scale Models',
+  '3D Designing & Sculpting',
+  '3D Scanning',
+  'CNC Machining',
+  'Injection Molding',
+  'Laser Cutting & Engraving',
+];
 const BLOG_IMAGES = [rapidPrototypingCover, scanToCncCover, quotePreparationCover];
 
 export default function BlogsPage({ setCurrentPage }) {
@@ -24,7 +34,7 @@ export default function BlogsPage({ setCurrentPage }) {
           <Reveal className="max-w-3xl mb-12">
             <span className="section-kicker mb-4">Latest Articles</span>
             <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-gradient-premium leading-tight">
-              Stay Updated with Blogs
+              Stay Updated with Insightful Blogs
             </h2>
           </Reveal>
 

@@ -42,11 +42,11 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
   const isLight = theme === 'light';
   const navLinkClass = (page) => `text-sm font-semibold transition-all duration-300 relative px-3 py-2 -mx-3 rounded-lg cursor-pointer ${
     currentPage === page 
-      ? 'text-accent-cyan font-bold bg-accent-cyan/10 ring-1 ring-accent-cyan/30 shadow-[0_0_18px_rgba(230,57,70,0.12)]'
+      ? 'text-accent-cyan font-bold'
       : 'text-text-secondary/80 hover:text-text-primary'
   }`;
   const mobileLinkClass = (page) => `text-lg font-semibold px-4 py-2 rounded-lg transition-colors ${
-    currentPage === page ? 'text-accent-cyan bg-accent-cyan/10 ring-1 ring-accent-cyan/30' : 'text-text-secondary'
+    currentPage === page ? 'text-accent-cyan font-bold' : 'text-text-secondary'
   }`;
 
   return (
@@ -125,7 +125,7 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
             <button 
               className={`text-sm font-semibold transition-all duration-300 relative px-3 py-2 -mx-3 rounded-lg cursor-pointer flex items-center gap-1.5 ${
                 isKnowledgeActive 
-                  ? 'text-accent-cyan font-bold bg-accent-cyan/10 ring-1 ring-accent-cyan/30 shadow-[0_0_18px_rgba(230,57,70,0.12)]'
+                  ? 'text-accent-cyan font-bold'
                   : 'text-text-secondary/80 hover:text-text-primary'
               }`}
               onClick={() => setKnowledgeOpen((open) => !open)}

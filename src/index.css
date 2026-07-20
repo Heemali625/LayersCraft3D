@@ -57,6 +57,20 @@ body {
   overflow-x: hidden;
 }
 
+.quote-form select,
+.quote-form select option {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+}
+
+.quote-form select {
+  color-scheme: dark;
+}
+
+:root.light .quote-form select {
+  color-scheme: light;
+}
+
 /* Custom Scrollbar styled for theme awareness */
 ::-webkit-scrollbar {
   width: 8px;

@@ -3,8 +3,6 @@ import logoBlack from '../assets/logo/LC3D_Logo_Black_High_Res.png';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { services } from '../data/services';
 
-const LOCATION_URL = 'https://maps.app.goo.gl/HidNNuHFzNKbs2vE9';
-
 const Linkedin = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -56,9 +54,9 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
   };
 
   return (
-    <footer className="bg-bg-secondary py-16 px-6 relative z-10 mt-auto">
+    <footer className="bg-bg-secondary py-8 px-6 relative z-10 mt-auto">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Column 1: Logo & Tagline */}
           <div className="flex flex-col items-start">
             <img 
@@ -143,6 +141,7 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
             </ul>
           </div>
 
+          <div className="contents lg:col-span-2 lg:grid lg:grid-cols-2 lg:gap-x-10 lg:gap-y-6">
           {/* Column 4: Contact Details */}
           <div className="flex flex-col items-start text-left">
             <h4 className="text-sm font-bold text-text-primary uppercase tracking-wider mb-5 font-heading">Contact Us</h4>
@@ -183,26 +182,15 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
               </a>
             </div>
           </div>
-        </div>
 
-        <div className="rounded-2xl overflow-hidden border border-border-color bg-bg-primary shadow-[0_20px_60px_rgba(0,0,0,0.2)]">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-6 py-5">
-            <div>
-              <h4 className="text-sm font-bold text-text-primary uppercase tracking-wider font-heading">Visit Us</h4>
-              <p className="text-sm text-text-secondary mt-1">Hyderabad, Telangana, India</p>
-            </div>
-            <a href={LOCATION_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-accent-cyan hover:text-text-primary transition-colors">
-              <MapPin size={17} />
-              Open in Google Maps
-            </a>
-          </div>
           <iframe
-            title="LayersCraft3D location"
-            src="https://www.google.com/maps?q=Hyderabad%2C%20Telangana%2C%20India&z=12&output=embed"
-            className="block w-full h-52 border-0"
+            title="LayersCraft3D location map"
+            src="https://www.google.com/maps?q=F9QF%2BV2C%2C%20Srila%20Park%20Pride%20Rd%2C%20Hafeezpet%2C%20Hyderabad%2C%20Telangana%20500049&output=embed"
+            className="lg:col-span-2 block w-full h-52 rounded-xl border border-border-color"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
+          </div>
         </div>
 
         {/* Footer Bottom Bar */}
