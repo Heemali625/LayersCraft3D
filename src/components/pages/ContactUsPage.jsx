@@ -1,45 +1,34 @@
-import { Clock, Mail, MapPin, MessageSquare, Phone, PhoneCall } from 'lucide-react';
+import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import CTASection from '../CTASection';
 import FAQSection from '../FAQSection';
 import Reveal from '../ui/Reveal';
-import { BentoPanel, EditorialBlock, PageHero, VisualPlate } from './PagePrimitives';
+import { BentoPanel, PageHero } from './PagePrimitives';
 
 export default function ContactUsPage({ setCurrentPage }) {
   return (
     <div className="bg-bg-primary text-text-primary">
       <PageHero
-        eyebrow="Contact Us"
-        title="Talk to a team that can shape the next build decision."
-        copy="Reach LayerCraft3D for 3D printing services in India, custom product design, rapid prototyping, 3D scanning, scale models, and CNC machining support."
-        meta={['Hyderabad, Telangana', 'India + Online Support', 'Quote Review']}
+        eyebrow="Need Assistance?"
+        title="Great Product Development Starts With a Conversation."
+        copy="If you are ready with a single concept or complicated design, our professional team is ready to help you move forward confidently."
+        meta={['Online Support', 'Fair Pricing', 'Nationwide Delivery']}
       />
 
-      <EditorialBlock
-        eyebrow="Direct Connection"
-        title="Start with the problem, the file, or the idea."
-        copy="You do not need a perfect brief. Share what you have: a sketch, reference image, CAD file, broken part, model requirement, or production question."
-      >
-        <VisualPlate label="Response Flow" title="Design review quotes are prepared around your file and use case.">
-          <MessageSquare size={138} className="absolute right-10 top-12 text-accent-cyan/55" />
-          <PhoneCall size={120} className="absolute left-10 bottom-12 text-white/10" />
-        </VisualPlate>
-      </EditorialBlock>
-
       <section className="relative py-20 px-6 premium-section overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 items-stretch lg:grid-cols-4 gap-5">
           {[
             { label: 'Email Support', value: 'print@layerscraft3d.com', icon: Mail },
-            { label: 'Phone Support', value: '+91 8247606508', icon: Phone },
-            { label: 'Business Address', value: 'Hyderabad, Telangana, India', icon: MapPin },
-            { label: 'Turnaround Details', value: 'Design review quotes provided within 24 hours.', icon: Clock },
+            { label: 'Phone Number', value: '+91 8247606508', icon: Phone },
+            { label: 'Office Location', value: 'Srila Park Pride Rd, Hafeezpet, Hyderabad, Telangana 500049', icon: MapPin },
+            { label: 'Response Time', value: 'Quote Review Within 24 Hours', icon: Clock },
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
-              <Reveal key={item.label} delay={idx * 0.08}>
-                <BentoPanel className="min-h-[250px]">
+              <Reveal key={item.label} delay={idx * 0.08} className="h-full">
+                <BentoPanel className="h-full min-h-[250px] lg:h-[292px] lg:min-h-0 flex flex-col justify-start">
                   <Icon size={26} className="text-accent-cyan mb-8" />
                   <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-text-muted">{item.label}</span>
-                  <p className="font-heading text-2xl font-bold text-text-primary mt-4">{item.value}</p>
+                  <p className="font-heading text-xl font-semibold leading-snug text-text-primary mt-4">{item.value}</p>
                 </BentoPanel>
               </Reveal>
             );
@@ -47,7 +36,7 @@ export default function ContactUsPage({ setCurrentPage }) {
         </div>
       </section>
 
-      <FAQSection title="Contact questions answered" />
+      <FAQSection kicker="FAQ’s" title="Quick Answers for You" />
 
       <CTASection setCurrentPage={setCurrentPage} />
     </div>

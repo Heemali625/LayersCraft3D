@@ -14,24 +14,24 @@ const SERVICES = [
 
 const FAQS = [
   {
-    q: "Can you help if I only have an idea?",
-    a: "Absolutely. Share your idea, sketch, or reference, and we are here to turn it into a workable 3D solution."
+    q: "Do you provide online services?",
+    a: "Yes. We offer online services. Wherever you are, we'll provide the best support online."
   },
   {
-    q: "What file formats can I upload?",
-    a: "You can upload STL, STEP, IGES, OBJ, SolidWorks files, and most standard 3D CAD formats."
+    q: "Do you offer 3D printing services across India?",
+    a: "Yes. With online support, we deliver completed projects safely across India."
   },
   {
-    q: "Do you provide material recommendations?",
-    a: "Yes. We help you in choosing the right material based on your application, performance needs, and budget."
+    q: "Do you offer 3D printing services across India?",
+    a: "Yes. With online support, we deliver completed projects safely across India."
   },
   {
-    q: "Will my design remain confidential?",
-    a: "Yes, for sure we keep your designs and project details completely confidential and secure."
+    q: "What information should I share initially?",
+    a: "You can share your idea, designs or drawings, CAD files, reference images, or project requirements."
   },
   {
-    q: "How quickly will I receive my quotation?",
-    a: "We usually review your request and share your quotation within 24 business hours."
+    q: "Can you help me choose the right service?",
+    a: "Yes. Based on your requirements, we'll recommend the most suitable solution for your project."
   }
 ];
 
@@ -60,6 +60,7 @@ export default function ContactPage({ selectedService = '' }) {
   const [uploadedFile, setUploadedFile] = useState(null);
   const [isDragActive, setIsDragActive] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
+  const [sameAsShipping, setSameAsShipping] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState('');
 
@@ -74,7 +75,18 @@ export default function ContactPage({ selectedService = '' }) {
   };
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [field]: value,
+      ...(field === 'shippingAddress' && sameAsShipping ? { billingAddress: value } : {}),
+    }));
+  };
+
+  const handleSameAsShippingChange = (checked) => {
+    setSameAsShipping(checked);
+    if (checked) {
+      setFormData(prev => ({ ...prev, billingAddress: prev.shippingAddress }));
+    }
   };
 
   const handleDrag = (e) => {
@@ -140,11 +152,13 @@ export default function ContactPage({ selectedService = '' }) {
       });
       
       if (!response.ok) {
-        throw new Error('Failed to send');
+        const errorBody = await response.json().catch(() => ({}));
+        throw new Error(errorBody.error || 'Failed to send');
       }
       
       setTimeout(() => {
         setFormData({ name: '', companyName: '', email: '', shippingAddress: '', billingAddress: '', gstNumber: '', phone: '', service: '' });
+        setSameAsShipping(false);
         setUploadedFile(null);
         setFocusedField({ name: false, companyName: false, email: false, shippingAddress: false, billingAddress: false, gstNumber: false, phone: false });
         setFormSubmitted(false);
@@ -271,22 +285,37 @@ export default function ContactPage({ selectedService = '' }) {
               </div>
 
               {/* Billing Address */}
-              <div className={`relative border-b border-border-color pt-4 transition-all duration-300 ${
-                focusedField.billingAddress || formData.billingAddress ? 'border-accent-cyan' : ''
-              }`}>
-                <label className={`absolute left-0 font-sans transition-all duration-300 pointer-events-none ${
-                  focusedField.billingAddress || formData.billingAddress ? 'top-[-0.25rem] text-xs text-accent-cyan' : 'top-5 text-sm text-text-muted hover:text-text-secondary'
-                }`} htmlFor="billing-address">Billing Address *</label>
-                <textarea
-                  id="billing-address"
-                  className="w-full min-h-20 resize-y bg-transparent border-none outline-none text-text-primary font-sans text-base py-2.5"
-                  value={formData.billingAddress}
-                  onChange={(e) => handleInputChange('billingAddress', e.target.value)}
-                  onFocus={() => handleFocus('billingAddress')}
-                  onBlur={(e) => handleBlur('billingAddress', e.target.value)}
-                  required
+              <div className="flex items-start gap-3 pt-1">
+                <input
+                  id="same-as-shipping"
+                  type="checkbox"
+                  checked={sameAsShipping}
+                  onChange={(e) => handleSameAsShippingChange(e.target.checked)}
+                  className="mt-1 h-4 w-4 accent-accent-cyan cursor-pointer"
                 />
+                <label htmlFor="same-as-shipping" className="text-sm text-text-secondary cursor-pointer">
+                  Billing address is the same as shipping address
+                </label>
               </div>
+
+              {!sameAsShipping && (
+                <div className={`relative border-b border-border-color pt-4 transition-all duration-300 ${
+                  focusedField.billingAddress || formData.billingAddress ? 'border-accent-cyan' : ''
+                }`}>
+                  <label className={`absolute left-0 font-sans transition-all duration-300 pointer-events-none ${
+                    focusedField.billingAddress || formData.billingAddress ? 'top-[-0.25rem] text-xs text-accent-cyan' : 'top-5 text-sm text-text-muted hover:text-text-secondary'
+                  }`} htmlFor="billing-address">Billing Address *</label>
+                  <textarea
+                    id="billing-address"
+                    className="w-full min-h-20 resize-y bg-transparent border-none outline-none text-text-primary font-sans text-base py-2.5"
+                    value={formData.billingAddress}
+                    onChange={(e) => handleInputChange('billingAddress', e.target.value)}
+                    onFocus={() => handleFocus('billingAddress')}
+                    onBlur={(e) => handleBlur('billingAddress', e.target.value)}
+                    required
+                  />
+                </div>
+              )}
 
               {/* GST Number */}
               <div className={`relative border-b border-border-color pt-4 transition-all duration-300 ${
@@ -418,14 +447,14 @@ export default function ContactPage({ selectedService = '' }) {
                   <Mail className="text-accent-cyan mt-0.5 flex-shrink-0" size={20} />
                   <div className="flex flex-col gap-0.5">
                     <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Email Support</span>
-                    <a href="mailto:print@layerscarft3d.com" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">print@layerscarft3d.com</a>
+                    <a href="mailto:print@layerscraft3d.com" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">print@layerscraft3d.com</a>
                   </div>
                 </div>
 
                 <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(230,57,70,0.02)] transition-all duration-300">
                   <Phone className="text-accent-cyan mt-0.5 flex-shrink-0" size={20} />
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Phone No</span>
+                    <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Phone Number</span>
                     <a href="tel:+918247606508" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">+91 8247606508</a>
                   </div>
                 </div>
@@ -433,16 +462,16 @@ export default function ContactPage({ selectedService = '' }) {
                 <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(230,57,70,0.02)] transition-all duration-300">
                   <MapPin className="text-accent-cyan mt-0.5 flex-shrink-0" size={20} />
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Office Address</span>
-                    <a href="https://maps.app.goo.gl/HidNNuHFzNKbs2vE9" target="_blank" rel="noreferrer" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">F9QF+V2C, Srila Park Pride Rd, Hafeezpet, Hyderabad, Telangana 500049</a>
+                    <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Office Location</span>
+                    <a href="https://maps.app.goo.gl/HidNNuHFzNKbs2vE9" target="_blank" rel="noreferrer" className="text-sm text-text-primary hover:text-accent-cyan transition-colors">Srila Park Pride Rd, Hafeezpet, Hyderabad, Telangana 500049</a>
                   </div>
                 </div>
 
                 <div className="flex gap-4 items-start p-5 bg-bg-secondary border border-border-color rounded-xl hover:border-accent-cyan/25 hover:translate-x-0.5 hover:shadow-[0_4px_20px_rgba(230,57,70,0.02)] transition-all duration-300">
                   <Clock className="text-accent-cyan mt-0.5 flex-shrink-0" size={20} />
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Turnaround Details</span>
-                    <span className="text-sm text-text-primary">Design review quotes provided within 24 hours.</span>
+                    <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Response Time</span>
+                    <span className="text-sm text-text-primary">Quote Review Within 24 Hours</span>
                   </div>
                 </div>
               </div>
@@ -450,7 +479,7 @@ export default function ContactPage({ selectedService = '' }) {
 
             {/* Accordion FAQ Component with Framer Motion height transitions */}
             <div>
-              <h3 className="font-heading text-lg font-bold text-text-primary mb-5 tracking-wide">Frequently Asked Questions</h3>
+              <h3 className="font-heading text-lg font-bold text-text-primary mb-5 tracking-wide">Quick Answers for You</h3>
 
               <div className="flex flex-col gap-4">
                 {FAQS.map((faq, idx) => (

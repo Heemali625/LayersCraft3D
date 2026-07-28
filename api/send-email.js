@@ -2,6 +2,8 @@
 // To switch to client email, just change the TO_EMAIL below
 // Deploy: vercel
 
+import nodemailer from 'nodemailer';
+
 const TO_EMAIL = 'print@layerscraft3d.com';
 const FROM_EMAIL = 'heemali.smirisys@gmail.com';
 
@@ -17,7 +19,9 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    const nodemailer = require('nodemailer');
+    if (!process.env.EMAIL_PASS) {
+      return res.status(503).json({ error: 'Email service is not configured. Please email us directly.' });
+    }
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',

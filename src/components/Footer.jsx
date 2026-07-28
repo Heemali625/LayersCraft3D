@@ -185,7 +185,7 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
 
           <iframe
             title="LayersCraft3D location map"
-            src="https://www.google.com/maps?q=F9QF%2BV2C%2C%20Srila%20Park%20Pride%20Rd%2C%20Hafeezpet%2C%20Hyderabad%2C%20Telangana%20500049&output=embed"
+            src="https://www.google.com/maps?q=Srila%20Park%20Pride%20Rd%2C%20Hafeezpet%2C%20Hyderabad%2C%20Telangana%20500049&output=embed"
             className="lg:col-span-2 block w-full h-52 rounded-xl border border-border-color"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

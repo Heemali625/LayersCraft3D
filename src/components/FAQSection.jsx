@@ -4,14 +4,14 @@ import { ChevronDown } from 'lucide-react';
 import { faqs } from '../content/layerCraftContent';
 import Reveal from './ui/Reveal';
 
-export default function FAQSection({ title = 'Frequently Asked Questions', items = faqs }) {
+export default function FAQSection({ kicker = 'FAQ', title = 'Frequently Asked Questions', items = faqs }) {
   const [active, setActive] = useState(null);
 
   return (
     <section className="relative py-20 px-6 premium-section overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <Reveal className="text-center mb-10">
-          <span className="section-kicker justify-center mb-4">FAQ</span>
+          <span className="section-kicker justify-center mb-4">{kicker}</span>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-gradient-premium leading-tight">
             {title}
           </h2>

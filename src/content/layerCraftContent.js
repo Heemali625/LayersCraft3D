@@ -143,25 +143,11 @@ export const blogPosts = [
 
 export const caseStudies = [
   {
-    title: 'Functional automotive intake prototype',
-    sector: 'Automotive & Motorsports',
-    result: 'Delivered a heat-aware prototype for under-the-hood validation.',
-    challenge: 'The team needed a physical intake concept quickly enough for design review and track testing decisions.',
-    approach: 'Material selection, print orientation, and post-processing were planned around temperature exposure and structural rigidity.',
-  },
-  {
-    title: 'Presentation-ready architectural scale model',
-    sector: 'Scale Models & Planning',
-    result: 'Created a detailed model for stakeholder presentations and spatial review.',
-    challenge: 'The model had to communicate proportions, surfaces, and planning intent without becoming fragile.',
-    approach: 'The build was separated into printable assemblies, finished cleanly, and optimized for handling during review.',
-  },
-  {
-    title: 'Digital recovery through 3D scanning',
-    sector: 'Product Redesign',
-    result: 'Converted an existing physical object into a usable digital reference.',
-    challenge: 'No clean CAD file was available, but the physical part needed replication and improvement.',
-    approach: 'Scanning created the digital foundation for cleanup, redesign, and future production planning.',
+    title: 'Project Future Fiction',
+    sector: 'Fashion & Creative Design',
+    result: 'Combining fashion with the latest 3D printing technology.',
+    challenge: 'The project explored how wearable fashion could be translated into a distinctive 3D-printed form.',
+    approach: 'The concept combined creative styling with additive manufacturing to create a visual statement piece.',
   },
 ];
 
@@ -204,19 +190,23 @@ export const technologies = [
 
 export const faqs = [
   {
-    q: 'Do you provide 3D printing services near me?',
-    a: 'Yes, we offer both local and online 3D printing services across India, with support for file review, quoting, production, and delivery.',
+    q: 'Do you provide online services?',
+    a: "Yes. We offer online services. Wherever you are, we'll provide the best support online.",
   },
   {
-    q: 'What software do you use?',
-    a: 'We use advanced 3D modeling, CAD, and slicing tools such as Fusion 360, SolidWorks, and Cura to prepare designs for precise manufacturing.',
+    q: 'Do you offer 3D printing services across India?',
+    a: "Yes. With online support, we deliver completed projects safely across India.",
   },
   {
-    q: 'Can you help with design?',
-    a: 'Yes. Share a sketch, reference image, existing part, or rough concept and our team can create ready-to-print 3D models.',
+    q: 'Do you offer 3D printing services across India?',
+    a: "Yes. With online support, we deliver completed projects safely across India.",
   },
   {
-    q: 'How fast can I get a prototype?',
-    a: 'Timelines depend on geometry, material, finish, and quantity, but many prototype reviews can move from file check to production within days.',
+    q: 'What information should I share initially?',
+    a: 'You can share your idea, designs or drawings, CAD files, reference images, or project requirements.',
+  },
+  {
+    q: 'Can you help me choose the right service?',
+    a: "Yes. Based on your requirements, we'll recommend the most suitable solution for your project.",
   },
 ];
