@@ -37,7 +37,7 @@ export function EditorialBlock({ eyebrow, title, copy, children, reverse = false
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-gradient-premium mb-5">
             {title}
           </h2>
-          <p className="premium-copy text-base sm:text-lg">{copy}</p>
+          {copy && <p className="premium-copy text-base sm:text-lg">{copy}</p>}
         </Reveal>
         <Reveal direction={reverse ? 'left' : 'right'} delay={0.1}>
           {children}

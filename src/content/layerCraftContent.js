@@ -96,19 +96,19 @@ export const workflow = [
   {
     num: '01',
     title: 'Consultation & Concept Design',
-    desc: 'You share the idea, problem, reference, sketch, or file. The team understands the requirement and prepares the design direction.',
+    desc: 'Firstly, after you contact & share your idea, our team understands your requirements and creates precise 3D designs for development.',
     icon: HelpCircle,
   },
   {
     num: '02',
     title: 'Prototyping & 3D Printing',
-    desc: 'The product moves into functional prototyping using the right 3D printing process, material, and build strategy.',
+    desc: 'Secondly, we start to build functional prototypes using advanced 3D printing technologies for quick results.',
     icon: Layers,
   },
   {
     num: '03',
     title: 'Quality Check & Delivery',
-    desc: 'The part is tested, refined, finished, and delivered so it is ready for review, presentation, or use.',
+    desc: 'Finally, we test, refine, and deliver high-quality 3D products that are ready for you to use.',
     icon: CheckCircle2,
   },
 ];
@@ -154,19 +154,21 @@ export const caseStudies = [
 export const brandPillars = [
   {
     title: 'All-in-One Solution',
-    desc: 'Concept to Product Creators handling idea, design, prototyping, and final delivery.',
+    desc: 'We are unique in handling everything from idea, design, prototyping, to final product delivery.',
     icon: Compass,
   },
   {
     title: 'Faster Innovation',
-    desc: 'Advanced 3D printing and optimized production processes help prototypes move quickly.',
+    desc: 'You can get your prototypes quickly using our advanced 3D printing and efficient processes.',
     icon: Timer,
   },
   {
-    title: 'Practical Engineering',
-    desc: 'Design choices stay grounded in use case, material behavior, quality, and delivery realities.',
+    title: 'Precision & Quality',
+    desc: 'We are experts at delivering accurate, high-quality parts that meet your exact design requirements.',
     icon: Settings,
   },
+  { title: 'Best Prices', desc: 'We have designed our advanced 3D Printing services at affordable prices to reduce your development and production expenses.', icon: Timer },
+  { title: 'Customer Satisfaction', desc: 'Our expert team will work closely with you to understand and deliver exactly what you need.', icon: CheckCircle2 },
 ];
 
 export const technologies = [

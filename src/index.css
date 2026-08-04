@@ -271,6 +271,10 @@ body {
   z-index: 1;
 }
 
+.service-journey-section {
+  background: linear-gradient(180deg, rgba(22, 24, 34, 0.72), rgba(13, 14, 18, 0.96));
+}
+
 .cta-button {
   background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent-blue), var(--color-accent-cyan));
 }

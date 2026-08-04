@@ -1,7 +1,7 @@
 import Reveal from './ui/Reveal';
 import { 
   Rocket, Wrench, Car, Building, Dna,
-  Film, Sparkles, Gem
+  Film, Gem
 } from 'lucide-react';
 
 const INDUSTRIES_DATA = [

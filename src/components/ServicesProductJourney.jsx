@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  ArrowRight, CheckCircle2, Sparkles
-} from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { cn } from '../utils/cn';
+import { services as serviceCatalog } from '../data/services';
 
-const services = [
+const legacyServices = [
   {
     id: 'design', step: '01', title: '3D Design & Sculpting',
     tagline: 'From concept sketches to production-ready CAD',
@@ -71,6 +70,66 @@ const services = [
     useCase: 'An engineering team attended our workshop to learn optimal design strategies for 3D printing. They gained practical skills and returned to their projects with improved output quality.',
   },
 ];
+
+const requestedServiceContent = {
+  'rapid-prototyping': {
+    description: 'As a product development process that converts CAD models into physical prototypes using FDM, SLA, or SLS 3D printing for testing, validation, design improvements, and manufacturing readiness.',
+    applications: ['Prototype Development', 'Design Verification & Testing', 'Product Development Projects', 'Low-Volume Functional Parts'],
+    deliverables: ['High-quality functional prototypes', 'Precision 3D printed models', 'Material selection guidance', 'Design improvement support'],
+  },
+  'custom-3d-printing': {
+    description: 'This transforms CAD models into accurate, application-specific parts using FDM, SLA, and SLS technologies. It supports functional prototypes, customized components, low-volume production, and product development.',
+    applications: ['Custom Product Development', 'Functional Engineering Components', 'Low-Volume Manufacturing', 'Personalized Consumer Products'],
+    deliverables: ['Precision 3D printed custom parts', 'Material selection based on application', 'High-quality surface finishing', 'Dimensionally accurate components'],
+  },
+  'scale-models': {
+    description: 'These are precision replicas created from CAD files or design drawings using advanced 3D printing technologies. They help visualize product designs, architectural concepts, industrial layouts, and engineering projects.',
+    applications: ['Architectural Building Models', 'Industrial Plant & Factory Models', 'Product Display & Demonstration Models', 'Urban Planning & Infrastructure Projects'],
+    deliverables: ['High-precision scale models', 'Fine detailing with professional finishing', 'Durable models for presentation', 'Ready-to-show assembled models'],
+  },
+  '3d-design-sculpting': {
+    description: 'It converts concepts, sketches, and reference models into accurate digital 3D models using CAD and sculpting software, preparing them for prototyping, 3D printing, manufacturing, or product visualization.',
+    applications: ['Custom Product Development', 'Character & Figurine Modeling', 'Jewelry & Fashion Product Design', 'Manufacturing-Ready 3D Models'],
+    deliverables: ['Production-ready 3D CAD model', 'Optimized design for 3D printing', 'Design review and required revisions', 'Technical support throughout development'],
+  },
+  '3d-scanning': {
+    description: 'This captures the exact shape and dimensions of existing objects to create accurate digital 3D models for reverse engineering, inspection, product redesign, quality analysis, and manufacturing applications.',
+    applications: ['Reverse Engineering Projects', 'Product Inspection & Quality Control', 'Spare Part Replication', 'Heritage & Artifact Digitization'],
+    deliverables: ['High-accuracy digital 3D scan data', 'Printable and editable 3D model files', 'Reverse engineering support', 'Dimensionally accurate digital models'],
+  },
+  'cnc-machining': {
+    description: 'It is a precision manufacturing process that uses computer-controlled machines to produce high-accuracy metal and plastic components with tight tolerances, excellent surface finish, and repeatable production quality.',
+    applications: ['Precision Mechanical Components', 'Industrial Equipment Components', 'Custom Metal & Plastic Parts', 'Jigs, Fixtures & Tooling'],
+    deliverables: ['Smooth surface finish and accurate dimensions', 'Material options based on your application', 'Production-ready components', 'Quality inspection before delivery'],
+  },
+  'laser-cutting-engraving': {
+    description: 'This uses high-precision laser technology to cut and engrave acrylic, wood, metal, leather, and other materials with clean edges, intricate details, and consistent accuracy.',
+    applications: ['Custom Signage & Nameplates', 'Product Branding & Logo Engraving', 'Decorative & Architectural Panels', 'Personalized Corporate & Gift Products'],
+    deliverables: ['Clean and precise laser-cut components', 'High-quality permanent engraving', 'Fine detailing with smooth edge finish', 'Custom designs based on your requirements'],
+  },
+  'injection-molding': {
+    description: 'It is a manufacturing process used to produce high-precision plastic components by injecting molten material into custom molds, making it ideal for repeatable, high-volume production with consistent quality.',
+    applications: ['Mass Production of Plastic Parts', 'Automotive Plastic Components', 'Medical Device Components', 'Industrial Product Manufacturing'],
+    deliverables: ['Injection mold design support', 'Production-ready plastic components', 'Consistent quality across every batch', 'Material selection based on product requirements'],
+  },
+  '3d-printing-workshop': {
+    description: 'Our 3D Printing Workshop provides practical training on 3D printing technologies, machine operation, CAD workflow, slicing software, materials, and post-processing through hands-on learning for students and professionals.',
+    applications: ['Engineering College Workshops', 'Corporate Technical Training', 'Product Design Learning', 'STEM Education Programs'],
+    deliverables: ['Hands-on 3D printing experience', 'Training on industry-standard workflows', 'Machine operation and maintenance guidance', 'Practical project-based learning'],
+  },
+};
+
+const orderedServices = serviceCatalog.map((service, index) => ({
+  ...service,
+  step: String(index + 1).padStart(2, '0'),
+  title: service.id === '3d-design-sculpting' ? '3D Designing & Sculpting' : service.title,
+  description: requestedServiceContent[service.id]?.description || service.shortDescription,
+  applications: requestedServiceContent[service.id]?.applications || [],
+  deliverables: requestedServiceContent[service.id]?.deliverables || [],
+  tagline: '',
+  useCase: '',
+}));
+void legacyServices;
 
 const Illustrations = {
   '01': (
@@ -233,10 +292,10 @@ export default function ServicesProductJourney({ setCurrentPage }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const active = services[activeIndex];
+  const active = orderedServices[activeIndex];
 
   return (
-    <section className="relative py-14 px-6 premium-section overflow-hidden">
+    <section className="relative py-14 px-6 premium-section service-journey-section overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
 
@@ -254,14 +313,13 @@ export default function ServicesProductJourney({ setCurrentPage }) {
                   {Illustrations[active.step] || Illustrations['04']}
                 </div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[10px] font-bold text-accent-cyan tracking-[0.18em] uppercase">Service {active.step} / {services.length.toString().padStart(2, '0')}</span>
+                  <span className="text-[10px] font-bold text-accent-cyan tracking-[0.18em] uppercase">Service {active.step} / {orderedServices.length.toString().padStart(2, '0')}</span>
                   <div className="h-px flex-1 bg-gradient-to-r from-accent-cyan/20 to-transparent" />
                 </div>
                 <h3 className="font-heading text-xl sm:text-2xl font-bold text-text-primary mb-1 tracking-tight">{active.title}</h3>
-                <p className="text-sm text-accent-cyan/80 font-medium mb-4">{active.tagline}</p>
                 <p className="text-sm text-text-secondary leading-relaxed mb-5">{active.description}</p>
                 <div className="mb-5">
-                  <h4 className="text-[10px] font-bold text-text-muted uppercase tracking-[0.12em] mb-2.5">Applications</h4>
+                  <h4 className="text-[10px] font-bold text-text-muted uppercase tracking-[0.12em] mb-2.5">Best For</h4>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                     {active.applications.map((app, i) => (
                       <div key={i} className="flex items-start gap-2">
@@ -272,20 +330,11 @@ export default function ServicesProductJourney({ setCurrentPage }) {
                   </div>
                 </div>
                 <div className="mb-5">
-                  <h4 className="text-[10px] font-bold text-text-muted uppercase tracking-[0.12em] mb-2.5">Deliverables</h4>
+                  <h4 className="text-[10px] font-bold text-text-muted uppercase tracking-[0.12em] mb-2.5">What you’ll Receive</h4>
                   <div className="flex flex-wrap gap-2">
                     {active.deliverables.map((del, i) => (
                       <span key={i} className="text-[10px] font-semibold px-2.5 py-1 rounded-md border border-border-color bg-bg-secondary/60 text-text-muted">{del}</span>
                     ))}
-                  </div>
-                </div>
-                <div className="mb-5 p-4 rounded-xl bg-bg-secondary/40 border border-border-color/40">
-                  <div className="flex items-start gap-2.5">
-                    <Sparkles size={14} className="text-accent-cyan/60 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-[10px] font-bold text-accent-cyan/60 uppercase tracking-[0.1em] mb-1.5">Real-world use case</p>
-                      <p className="text-[12px] text-text-secondary leading-relaxed">{active.useCase}</p>
-                    </div>
                   </div>
                 </div>
                 <button onClick={handleCTA} className="group inline-flex items-center gap-1.5 text-xs font-bold text-accent-cyan hover:text-white transition-colors cursor-pointer">
@@ -299,7 +348,7 @@ export default function ServicesProductJourney({ setCurrentPage }) {
           {/* RIGHT: Service Navigation */}
           <div className="lg:w-[55%]">
             <div className="flex flex-col">
-              {services.map((item, idx) => {
+              {orderedServices.map((item, idx) => {
                 const isActive = idx === activeIndex;
                 return (
                   <button
@@ -352,15 +401,15 @@ export default function ServicesProductJourney({ setCurrentPage }) {
             <div className="mt-5 pt-4 border-t border-border-color/30 flex items-center">
               {/* Status text */}
               <span className="text-[10px] text-text-muted flex-shrink-0">
-                {activeIndex === services.length - 1
+                {activeIndex === orderedServices.length - 1
                   ? 'All services explored'
-                  : `${services[activeIndex + 1]?.title} up next`}
+                  : `${orderedServices[activeIndex + 1]?.title} up next`}
               </span>
 
               {/* Dots — centered in available space */}
               <div className="flex-1 flex justify-center">
                 <div className="flex items-center gap-5">
-                  {services.map((item, idx) => {
+                  {orderedServices.map((item, idx) => {
                     const isActive = idx === activeIndex;
                     return (
                       <button
