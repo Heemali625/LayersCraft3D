@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { cn } from '../utils/cn';
@@ -283,7 +283,28 @@ const Illustrations = {
 };
 
 export default function ServicesProductJourney({ setCurrentPage }) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const initialSlug = typeof window !== 'undefined' && window.location.pathname.startsWith('/services/')
+    ? window.location.pathname.split('/').filter(Boolean).pop()
+    : null;
+  const initialIndex = Math.max(0, orderedServices.findIndex((service) => service.id === initialSlug));
+  const [activeIndex, setActiveIndex] = useState(initialIndex);
+
+  useEffect(() => {
+    const syncServiceFromPath = () => {
+      const slug = window.location.pathname.startsWith('/services/')
+        ? window.location.pathname.split('/').filter(Boolean).pop()
+        : null;
+      const nextIndex = orderedServices.findIndex((service) => service.id === slug);
+      setActiveIndex(nextIndex >= 0 ? nextIndex : 0);
+    };
+    window.addEventListener('popstate', syncServiceFromPath);
+    return () => window.removeEventListener('popstate', syncServiceFromPath);
+  }, []);
+
+  const selectService = (index) => {
+    setActiveIndex(index);
+    setCurrentPage('services', orderedServices[index].id);
+  };
 
   const handleCTA = () => {
     const serviceName = active.title;
@@ -353,7 +374,7 @@ export default function ServicesProductJourney({ setCurrentPage }) {
                 return (
                   <button
                     key={item.id}
-                    onClick={() => setActiveIndex(idx)}
+                    onClick={() => selectService(idx)}
                     className={cn(
                       'w-full text-left flex items-start gap-3 sm:gap-4 py-3 sm:py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 cursor-pointer border',
                       isActive
@@ -414,7 +435,7 @@ export default function ServicesProductJourney({ setCurrentPage }) {
                     return (
                       <button
                         key={item.id}
-                        onClick={() => setActiveIndex(idx)}
+                        onClick={() => selectService(idx)}
                         className="relative flex items-center justify-center cursor-pointer"
                         style={{ width: '16px', height: '16px' }}
                         aria-label={item.title}

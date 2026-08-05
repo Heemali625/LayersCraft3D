@@ -19,8 +19,13 @@ export default function Hero({ setCurrentPage }) {
     return () => window.clearInterval(interval);
   }, []);
 
-  const handleCTA = () => {
+  const handleQuote = () => {
     setCurrentPage('quick-quote');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleContact = () => {
+    setCurrentPage('contact');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -111,8 +116,8 @@ export default function Hero({ setCurrentPage }) {
             <div className="flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.025] px-4 py-3 backdrop-blur-sm"><ShieldCheck size={17} className="text-accent-emerald" /><span className="text-xs font-semibold text-text-secondary">Production-Ready Solutions</span></div>
           </div>
           <div className="flex gap-4 flex-wrap">
-            <button className="btn-glow px-6 py-3 rounded-lg text-sm font-semibold text-text-primary select-none cursor-pointer group" onClick={handleCTA}><span className="flex items-center gap-2">Get Your Prototype<ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></span></button>
-            <button className="px-6 py-3 rounded-lg border border-border-color bg-transparent hover:bg-bg-secondary hover:border-text-secondary/50 text-sm font-semibold text-text-primary transition-all cursor-pointer" onClick={handleCTA}>Talk to Our Team</button>
+            <button className="btn-glow px-6 py-3 rounded-lg text-sm font-semibold text-text-primary select-none cursor-pointer group" onClick={handleQuote}><span className="flex items-center gap-2">Get Your Prototype<ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></span></button>
+            <button className="px-6 py-3 rounded-lg border border-border-color bg-transparent hover:bg-bg-secondary hover:border-text-secondary/50 text-sm font-semibold text-text-primary transition-all cursor-pointer" onClick={handleContact}>Talk to Our Team</button>
           </div>
         </motion.div>
       </div>

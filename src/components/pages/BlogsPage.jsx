@@ -28,13 +28,13 @@ export default function BlogsPage({ setCurrentPage }) {
   );
 
   return (
-    <div className="bg-bg-primary text-text-primary pt-28">
+    <div className="bg-bg-primary text-text-primary pt-40 sm:pt-44">
       <section className="relative pb-20 px-6 premium-section overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <Reveal className="max-w-3xl mb-12">
             <span className="section-kicker mb-4">Latest Articles</span>
             <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-gradient-premium leading-tight">
-              Stay Updated with Insightful Blogs
+              Stay Updated with Blogs
             </h2>
           </Reveal>
 

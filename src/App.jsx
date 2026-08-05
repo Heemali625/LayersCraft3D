@@ -16,6 +16,7 @@ import BlogsPage from './components/pages/BlogsPage';
 import CaseStudiesPage from './components/pages/CaseStudiesPage';
 import ContactUsPage from './components/pages/ContactUsPage';
 import QuickQuotePage from './components/pages/QuickQuotePage';
+import CaseStudyDetailPage from './components/pages/CaseStudyDetailPage';
 
 const PAGE_TO_PATH = {
   home: '/',
@@ -25,6 +26,7 @@ const PAGE_TO_PATH = {
   'case-studies': '/knowledge-base/case-studies',
   contact: '/contact-us',
   'quick-quote': '/quick-quote',
+  'case-study-detail': '/knowledge-base/case-studies/project-future-fiction',
 };
 
 const PATH_TO_PAGE = Object.entries(PAGE_TO_PATH).reduce((acc, [page, path]) => {
@@ -34,6 +36,8 @@ const PATH_TO_PAGE = Object.entries(PAGE_TO_PATH).reduce((acc, [page, path]) => 
 
 const getPageFromPath = () => {
   if (typeof window === 'undefined') return 'home';
+  if (window.location.pathname.startsWith('/services/')) return 'services';
+  if (window.location.pathname.startsWith('/knowledge-base/case-studies/')) return 'case-study-detail';
   return PATH_TO_PAGE[window.location.pathname] || 'home';
 };
 
@@ -82,12 +86,14 @@ function App() {
     window.localStorage.setItem('lc3d-theme', theme);
   }, [theme]);
 
-  const setCurrentPage = (page) => {
-    const nextPath = PAGE_TO_PATH[page] || '/';
+  const setCurrentPage = (page, serviceSlug = '') => {
+    const nextPath = page === 'services' && serviceSlug
+      ? `/services/${serviceSlug}`
+      : PAGE_TO_PATH[page] || '/';
     if (window.location.pathname !== nextPath) {
       window.history.pushState({}, '', nextPath);
     }
-    setCurrentPageState(PAGE_TO_PATH[page] ? page : 'home');
+    setCurrentPageState(PAGE_TO_PATH[page] || page === 'services' ? page : 'home');
   };
 
 
@@ -139,6 +145,8 @@ function App() {
           <BlogsPage setCurrentPage={setCurrentPage} />
         ) : currentPage === 'case-studies' ? (
           <CaseStudiesPage setCurrentPage={setCurrentPage} />
+        ) : currentPage === 'case-study-detail' ? (
+          <CaseStudyDetailPage setCurrentPage={setCurrentPage} />
         ) : currentPage === 'contact' ? (
           <ContactUsPage setCurrentPage={setCurrentPage} />
         ) : (

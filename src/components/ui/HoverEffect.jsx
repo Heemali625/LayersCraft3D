@@ -23,6 +23,13 @@ export const HoverEffect = ({
             className="relative group block p-2 h-full w-full"
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
+            onClick={() => item.linkAction?.(item)}
+            onKeyDown={(event) => {
+              if ((event.key === 'Enter' || event.key === ' ') && item.linkAction) item.linkAction(item);
+            }}
+            role={item.linkAction ? 'link' : undefined}
+            tabIndex={item.linkAction ? 0 : undefined}
+            style={item.linkAction ? { cursor: 'pointer' } : undefined}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
@@ -56,7 +63,7 @@ export const HoverEffect = ({
               {item.linkAction && (
                 <div className="mt-4 pt-2">
                   <button 
-                    onClick={item.linkAction} 
+                    onClick={() => item.linkAction(item)} 
                     className="flex items-center gap-1.5 text-xs font-semibold text-text-secondary group-hover:text-accent-cyan transition-colors cursor-pointer"
                   >
                     <span>Request Quote</span>

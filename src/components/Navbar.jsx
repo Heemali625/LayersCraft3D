@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import logoWhite from '../assets/logo/LC3D_Logo_White_High_Res.png';
 import logoBlack from '../assets/logo/LC3D_Logo_Black_High_Res.png';
 import { ChevronDown, Menu, X, ArrowUpRight, Moon, Sun } from 'lucide-react';
-import { services } from '../content/layerCraftContent';
+import { services } from '../data/services';
 
 export default function Navbar({ currentPage, setCurrentPage, scrollToSection, theme, setTheme }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,6 +35,14 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
       return;
     }
     setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleServiceClick = (slug) => {
+    setIsOpen(false);
+    setKnowledgeOpen(false);
+    setServicesOpen(false);
+    setCurrentPage('services', slug);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -101,7 +109,7 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
                     {services.map((service) => (
                       <button
                         key={service.title}
-                        onClick={() => handleNavClick('services')}
+                        onClick={() => handleServiceClick(service.slug)}
                         className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
                           currentPage === 'services' 
                             ? 'text-accent-cyan bg-white/[0.06]' 
@@ -243,7 +251,7 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
             </button>
             <div className={`flex flex-col items-center gap-2 -mt-2 ${currentPage === 'services' ? 'opacity-100' : ''}`}>
               {services.map((service) => (
-                <button key={service.title} className={`text-sm font-semibold ${currentPage === 'services' ? 'text-accent-cyan' : 'text-text-muted'}`} onClick={() => handleNavClick('services')}>
+                <button key={service.title} className={`text-sm font-semibold ${currentPage === 'services' ? 'text-accent-cyan' : 'text-text-muted'}`} onClick={() => handleServiceClick(service.slug)}>
                   {service.title}
                 </button>
               ))}

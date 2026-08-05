@@ -49,7 +49,7 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
       }, 100);
       return;
     }
-    setCurrentPage(page);
+    setCurrentPage(page, page === 'services' ? sectionId : undefined);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -131,7 +131,7 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
               {services.map((service) => (
                 <li key={service.id}>
                   <button
-                    onClick={() => handleNavClick('services')}
+                    onClick={() => handleNavClick('services', service.slug)}
                     className="text-sm text-text-secondary hover:text-accent-cyan hover:translate-x-1 transition-all cursor-pointer bg-transparent border-none p-0 text-left"
                   >
                     {service.title}
