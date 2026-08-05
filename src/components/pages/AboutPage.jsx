@@ -9,7 +9,7 @@ export default function AboutPage({ setCurrentPage }) {
     <div className="about-page bg-bg-primary text-text-primary">
       <PageHero
         eyebrow="About Layers Craft 3D"
-        title="We're Creators of Quality 3D Printing Solutions"
+        title="We're Creators of Innovative 3D Printing Solutions"
         copy="Whether it's your first sketch or a functional prototype, we provide complete product development solutions without compromising on quality."
         meta={['Trusted 3D Printing Company', 'Serving Hyderabad & Nationwide', 'Online Project Support']}
       />

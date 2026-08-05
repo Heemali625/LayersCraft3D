@@ -112,8 +112,8 @@ export default function Hero({ setCurrentPage }) {
           </h1>
           <p className="text-base sm:text-lg premium-copy mb-8 max-w-[600px]">We combine design expertise with advanced 3D technology to deliver high-quality, cost-effective prototypes within days.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 w-full max-w-[560px]">
-            <div className="flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.025] px-4 py-3 backdrop-blur-sm"><Timer size={17} className="text-accent-amber" /><span className="text-xs font-semibold text-text-secondary">Innovative Designs</span></div>
-            <div className="flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.025] px-4 py-3 backdrop-blur-sm"><ShieldCheck size={17} className="text-accent-emerald" /><span className="text-xs font-semibold text-text-secondary">Production-Ready Solutions</span></div>
+            <div className="hero-feature-pill flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.025] px-4 py-3 backdrop-blur-sm"><Timer size={17} className="text-accent-amber" /><span className="text-xs font-semibold text-text-secondary">Innovative Designs</span></div>
+            <div className="hero-feature-pill flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.025] px-4 py-3 backdrop-blur-sm"><ShieldCheck size={17} className="text-accent-emerald" /><span className="text-xs font-semibold text-text-secondary">Production-Ready Solutions</span></div>
           </div>
           <div className="flex gap-4 flex-wrap">
             <button className="btn-glow px-6 py-3 rounded-lg text-sm font-semibold text-text-primary select-none cursor-pointer group" onClick={handleQuote}><span className="flex items-center gap-2">Get Your Prototype<ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></span></button>

@@ -112,8 +112,8 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
                         onClick={() => handleServiceClick(service.slug)}
                         className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
                           currentPage === 'services' 
-                            ? 'text-accent-cyan bg-white/[0.06]' 
-                            : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'
+                            ? `nav-submenu-active ${isLight ? 'text-accent-dark bg-accent-cyan/10 border border-accent-cyan/30' : 'text-accent-cyan bg-white/[0.06]'}`
+                            : `text-text-secondary ${isLight ? 'border border-transparent hover:text-text-primary hover:bg-slate-200/70 hover:border-slate-300' : 'hover:text-text-primary hover:bg-white/[0.04]'}`
                         }`}
                       >
                         {service.title}
@@ -154,13 +154,13 @@ export default function Navbar({ currentPage, setCurrentPage, scrollToSection, t
                   <div className="premium-card rounded-xl p-2">
                     <button onClick={() => handleNavClick('blogs')} className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
                       currentPage === 'blogs' 
-                        ? 'text-accent-cyan bg-white/[0.06]' 
-                        : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'
+                        ? `nav-submenu-active ${isLight ? 'text-accent-dark bg-accent-cyan/10 border border-accent-cyan/30' : 'text-accent-cyan bg-white/[0.06]'}`
+                        : `text-text-secondary ${isLight ? 'border border-transparent hover:text-text-primary hover:bg-slate-200/70 hover:border-slate-300' : 'hover:text-text-primary hover:bg-white/[0.04]'}`
                     }`}>Blogs</button>
                     <button onClick={() => handleNavClick('case-studies')} className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
                       currentPage === 'case-studies' 
-                        ? 'text-accent-cyan bg-white/[0.06]' 
-                        : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'
+                        ? `nav-submenu-active ${isLight ? 'text-accent-dark bg-accent-cyan/10 border border-accent-cyan/30' : 'text-accent-cyan bg-white/[0.06]'}`
+                        : `text-text-secondary ${isLight ? 'border border-transparent hover:text-text-primary hover:bg-slate-200/70 hover:border-slate-300' : 'hover:text-text-primary hover:bg-white/[0.04]'}`
                     }`}>Case Studies</button>
                   </div>
                 </motion.div>

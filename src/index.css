@@ -275,6 +275,27 @@ body {
   background: linear-gradient(180deg, rgba(22, 24, 34, 0.72), rgba(13, 14, 18, 0.96));
 }
 
+.light .service-journey-section {
+  background: linear-gradient(180deg, rgba(238,242,247,0.96), rgba(248,250,252,0.98));
+}
+
+.light .service-journey-section .bg-bg-secondary {
+  background-color: rgba(255,255,255,0.72);
+}
+
+.light .service-journey-section .border-border-color {
+  border-color: rgba(15,23,42,0.14);
+}
+
+.light .service-journey-section svg rect[fill="#0d0e12"] {
+  fill: var(--color-bg-secondary);
+}
+
+.light .service-journey-section svg rect[stroke="#E63946"],
+.light .service-journey-section svg rect[stroke="#C1121F"] {
+  stroke-opacity: 0.32;
+}
+
 .cta-button {
   background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent-blue), var(--color-accent-cyan));
 }
@@ -356,27 +377,47 @@ body {
 
 /* Portfolio: light-mode overrides to improve readability without affecting dark mode */
 .light #portfolio .ambient-overlay {
-  background: linear-gradient(to top, rgba(255,255,255,0.88), rgba(255,255,255,0.6), rgba(255,255,255,0.02));
+  background: linear-gradient(to top, rgba(15,23,42,0.72), rgba(15,23,42,0.22) 58%, rgba(15,23,42,0.04));
   mix-blend-mode: normal;
 }
 
 .light #portfolio .top-sheen {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
-  opacity: 0.6;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.18), transparent);
+  opacity: 0.35;
 }
 
 .light #portfolio .tech-badge {
-  background: rgba(255,255,255,0.78);
+  background: rgba(248,250,252,0.94);
   color: var(--color-text-primary);
-  border-color: rgba(0,0,0,0.06);
+  border-color: rgba(15,23,42,0.18);
   backdrop-filter: blur(6px);
 }
 
 .light #portfolio .details-card {
-  background: rgba(255,255,255,0.92);
+  background: rgba(238,242,247,0.96);
   color: var(--color-text-primary);
-  border-color: var(--color-border-color);
+  border-color: rgba(15,23,42,0.16);
   box-shadow: 0 12px 40px rgba(16,24,40,0.06);
+}
+
+/* Keep pill outlines visible against light backgrounds. */
+.light [class*="rounded-full"][class*="border"] {
+  border-color: rgba(15,23,42,0.18) !important;
+}
+
+.light .hero-feature-pill {
+  border-color: rgba(15,23,42,0.16) !important;
+  background: rgba(255,255,255,0.58);
+}
+
+.light .nav-submenu-active {
+  background: rgba(230,57,70,0.10) !important;
+  border: 1px solid rgba(230,57,70,0.28);
+  color: var(--color-accent-dark) !important;
+}
+
+.light #portfolio .details-card ul {
+  border-top-color: rgba(15,23,42,0.12);
 }
 
 .light #portfolio .details-card .text-text-secondary,
