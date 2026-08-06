@@ -37,7 +37,7 @@ export default function Workflow() {
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary mb-5 text-gradient-premium">
-            Layers Craft 3D Makes Your Product Development Simple & Fast
+            Layers Craft 3D Makes Your Product Development Fast
           </h2>
         </Reveal>
 
