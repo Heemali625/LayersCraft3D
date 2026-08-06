@@ -1,11 +1,12 @@
 // Vercel Serverless Function — Email Contact Form
-// To switch to client email, just change the TO_EMAIL below
-// Deploy: vercel
+// Configure EMAIL_PASS in Vercel with the Gmail App Password for the
+// dedicated forms account. The recipient can be overridden with TO_EMAIL.
 
 import nodemailer from 'nodemailer';
 
-const TO_EMAIL = 'print@layerscraft3d.com';
-const FROM_EMAIL = 'heemali.smirisys@gmail.com';
+const TO_EMAIL = process.env.TO_EMAIL || 'print@layerscraft3d.com';
+const FROM_EMAIL = process.env.EMAIL_USER || 'formsintegration8@gmail.com';
+const EMAIL_PASS = (process.env.EMAIL_PASS || process.env.EMAIL_PASSWORD || '').replace(/\s+/g, '');
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -19,7 +20,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    if (!process.env.EMAIL_PASS) {
+    if (!EMAIL_PASS) {
       return res.status(503).json({ error: 'Email service is not configured. Please email us directly.' });
     }
 
@@ -27,7 +28,7 @@ export default async function handler(req, res) {
       service: 'gmail',
       auth: {
         user: FROM_EMAIL,
-        pass: process.env.EMAIL_PASS,
+        pass: EMAIL_PASS,
       },
     });
 
