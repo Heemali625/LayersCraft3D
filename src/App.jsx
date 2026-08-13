@@ -17,6 +17,7 @@ import CaseStudiesPage from './components/pages/CaseStudiesPage';
 import ContactUsPage from './components/pages/ContactUsPage';
 import QuickQuotePage from './components/pages/QuickQuotePage';
 import CaseStudyDetailPage from './components/pages/CaseStudyDetailPage';
+import Education3DPrintingPage from './components/pages/Education3DPrintingPage';
 
 const PAGE_TO_PATH = {
   home: '/',
@@ -27,6 +28,7 @@ const PAGE_TO_PATH = {
   contact: '/contact-us',
   'quick-quote': '/quick-quote',
   'case-study-detail': '/knowledge-base/case-studies/project-future-fiction',
+  'blog-education-3d-printing': '/knowledge-base/blogs/why-education-system-is-adopting-3d-printing',
 };
 
 const PATH_TO_PAGE = Object.entries(PAGE_TO_PATH).reduce((acc, [page, path]) => {
@@ -38,6 +40,7 @@ const getPageFromPath = () => {
   if (typeof window === 'undefined') return 'home';
   if (window.location.pathname.startsWith('/services/')) return 'services';
   if (window.location.pathname.startsWith('/knowledge-base/case-studies/')) return 'case-study-detail';
+  if (window.location.pathname.startsWith('/knowledge-base/blogs/')) return 'blog-education-3d-printing';
   return PATH_TO_PAGE[window.location.pathname] || 'home';
 };
 
@@ -147,6 +150,8 @@ function App() {
           <CaseStudiesPage setCurrentPage={setCurrentPage} />
         ) : currentPage === 'case-study-detail' ? (
           <CaseStudyDetailPage setCurrentPage={setCurrentPage} />
+        ) : currentPage === 'blog-education-3d-printing' ? (
+          <Education3DPrintingPage setCurrentPage={setCurrentPage} />
         ) : currentPage === 'contact' ? (
           <ContactUsPage setCurrentPage={setCurrentPage} />
         ) : (

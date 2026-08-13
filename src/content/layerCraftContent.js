@@ -122,22 +122,11 @@ export const proofPoints = [
 
 export const blogPosts = [
   {
-    title: 'How rapid prototyping reduces product-development risk',
-    category: 'Product Development',
-    readTime: '6 min read',
-    excerpt: 'A practical look at using prototypes to test form, fit, and function before production decisions get expensive.',
-  },
-  {
-    title: 'Choosing between 3D printing, scanning, and CNC machining',
-    category: 'Manufacturing Guide',
-    readTime: '7 min read',
-    excerpt: 'When each process makes sense, what files you need, and how to choose a build path for your product.',
-  },
-  {
-    title: 'What to prepare before requesting a 3D printing quote',
-    category: 'Quick Quote',
-    readTime: '4 min read',
-    excerpt: 'The files, dimensions, materials, and use-case details that help teams estimate faster and more accurately.',
+    title: 'Why the education system is adopting 3D printing technology',
+    category: 'Custom 3D Printing',
+    readTime: '8 min read',
+    excerpt: 'How physical models, prototyping, and interdisciplinary making are helping students build future-ready skills.',
+    slug: 'why-education-system-is-adopting-3d-printing',
   },
 ];
 
