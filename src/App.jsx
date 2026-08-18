@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Lenis from 'lenis';
+import { ArrowUp } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Industries from './components/Industries';
@@ -50,6 +51,14 @@ function App() {
     if (typeof window === 'undefined') return 'dark';
     return window.localStorage.getItem('lc3d-theme') || 'dark';
   });
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 450);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Initialize Lenis Smooth Momentum Scrolling
   useEffect(() => {
@@ -165,6 +174,17 @@ function App() {
         scrollToSection={scrollToSection} 
         theme={theme}
       />
+
+      {showScrollTop && (
+        <button
+          type="button"
+          aria-label="Scroll to top"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full border border-accent-cyan/40 bg-bg-secondary/90 text-accent-cyan backdrop-blur-md flex items-center justify-center shadow-[0_0_24px_rgba(230,57,70,0.18)] hover:bg-accent-cyan hover:text-white transition-all duration-300 cursor-pointer"
+        >
+          <ArrowUp size={18} />
+        </button>
+      )}
 
       {/* Hidden global SVG Gooey Filter definitions */}
       <svg xmlns="http://www.w3.org/2000/svg" className="hidden absolute w-0 h-0" version="1.1">

@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react';
 import logoWhite from '../assets/logo/LC3D_Logo_White_High_Res.png';
 import logoBlack from '../assets/logo/LC3D_Logo_Black_High_Res.png';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowUp, Mail, MapPin, Phone } from 'lucide-react';
 import { services } from '../data/services';
 
 const Linkedin = ({ size = 18 }) => (
@@ -41,6 +42,17 @@ const Youtube = ({ size = 18 }) => (
 
 export default function Footer({ setCurrentPage, scrollToSection, theme }) {
   const isLight = theme === 'light';
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 360);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
   const handleNavClick = (page, sectionId) => {
     if (page === 'home' && sectionId) {
       setCurrentPage('home');
@@ -54,7 +66,16 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
   };
 
   return (
-    <footer className="bg-bg-secondary py-8 px-6 relative z-10 mt-auto">
+    <>
+      <button
+        type="button"
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+        className={`scroll-top-button fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-border-color bg-bg-secondary text-text-secondary shadow-lg transition-all duration-300 hover:border-accent-cyan hover:-translate-y-1 ${showScrollTop ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
+      >
+        <ArrowUp size={18} />
+      </button>
+      <footer className="bg-bg-secondary py-8 px-6 relative z-10 mt-auto">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Column 1: Logo & Tagline */}
@@ -203,6 +224,7 @@ export default function Footer({ setCurrentPage, scrollToSection, theme }) {
           </p>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 }
